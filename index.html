@@ -7,270 +7,711 @@
       <meta name="keywords" content="streetwear, modă urbană, haine casual, outfit cool, limited edition, haine premium, stil urban, hip-hop fashion"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
       <meta name="description" content="Curs de Tehnici Web. Limbajul HTML. Taguri."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
       <meta name="author" content="Trifan Iustinian Luca">  <!-- autorul/autoarea paginii-->
+      <link rel="stylesheet" href="General.css">
       <link rel="icon" type="image/png" href="./Resurse/Imagini/favicon_io/favicon-32x32.png" sizes="32x32" />
         <link rel="icon" type="image/svg+xml" href="./Resurse/Imagini/favicon_io/favicon.svg" />
         <link rel="shortcut icon" href="./Resurse/Imagini/favicon_io/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="./Resurse/Imagini/favicon_io/apple-touch-icon.png" />
         <link rel="manifest" href="./Resurse/Imagini/favicon_io/site.webmanifest" />
+        <script src="https://kit.fontawesome.com/6538d875bb.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
-            <header>
-                <h1>Titlu paginii </h1>
-                <nav>
-                    <ul>
-                        <li><a href="#sectiune1">Sectiune 1</a>
-                            <ul>
-                                <li><a href="#subsectiune1">Subsectiune 1</a></li>
-                                <li><a href="#subsectiune2">Subsectiune 2</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#sectiune2">Sectiune 2</a></li>
-                        <li>ccc</li>
-                    </ul>
-                </nav>
-                <a href="https://www.example.com" target="_blank">Vezi mai multe despre streetwear</a>
-            </header>
+        <header class="site-header">
+            <div class="header-container">
+                <div class="logo-container">
+                    <h1>UrbanVibe</h1>
+                    <p class="tagline">Streetwear & Casual</p>
+                </div>
+                
+                <div class="search-container">
+                    <form action="#" method="get">
+                        <input type="text" placeholder="Caută produse..." name="search">
+                        <button type="submit" class="search-button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="user-actions">
+                    <a href="#" class="user-icon" title="Contul meu">
+                        <i class="fa fa-user"></i>
+                    </a>
+                    <a href="#" class="cart-icon" title="Coșul meu">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Acasă</a></li>
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link">Bărbați</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Tricouri & hanorace</a></li>
+                            <li><a href="#">Pantaloni & joggers</a></li>
+                            <li><a href="#">Jachete & geci</a></li>
+                            <li><a href="#">Sneakerși & accesorii</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link">Femei</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Crop tops & tricouri oversized</a></li>
+                            <li><a href="#">Pantaloni cargo & colanți</a></li>
+                            <li><a href="#">Hanorace & jachete</a></li>
+                            <li><a href="#">Pantofi & genți</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#" class="nav-link">Colecții speciale</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Limited Edition</a></li>
+                            <li><a href="#">Colaborări cu artiști</a></li>
+                            <li><a href="#">Haine sustenabile</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="nav-link">Lookbook</a></li>
+                    <li><a href="#" class="nav-link">Despre noi</a></li>
+                    <li><a href="#" class="nav-link">Contact & Suport</a></li>
+                </ul>
+            </nav>
+            
+            <div class="promo-banner">
+                <p>Transport gratuit la comenzi de peste 250 Lei! <a href="https://www.example.com" target="_blank">Vezi mai multe despre streetwear</a></p>
+                
+            </div>
+        </header>
+            
             <main>
-
-                <section id="sectiune1">
-                    <h2>Titlu sectiune</h2>
-                    <p>Un paragraf.</p>
-                    <section id="subsectiune1">
-                        <h3>Titlu subsectiune</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus nemo soluta illo doloremque, quo officia fugiat? Excepturi illum minima totam, pariatur corporis nesciunt odio, consequuntur magni perferendis dolor, quisquam quo.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
+                <div class="container">
+                  
+                    <main class="main">1</main>
+                    <section class="section5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</section>
+                    <section class="section6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</section>
+                    <section class="section7">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</section>
+                    <section class="section3">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</section>
+                    <section class="section2">
+                        <h1>Ghid de mărimi</h1>
+        
+        <div class="size-tabs">
+            <button class="tab-button active" onclick="openSizeTable('tricouri')">Tricouri & Hanorace</button>
+            <button class="tab-button" onclick="openSizeTable('pantaloni')">Pantaloni</button>
+            <button class="tab-button" onclick="openSizeTable('jachete')">Jachete</button>
+            <button class="tab-button" onclick="openSizeTable('incaltaminte')">Încălțăminte</button>
+        </div>
+        
+        <div class="size-tables">
+            <!-- Tabel pentru tricouri și hanorace -->
+            <div id="tricouri" class="size-table active">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mărime EU</th>
+                            <th>Mărime internațională</th>
+                            <th>Circumferință piept (cm)</th>
+                            <th>Lungime (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>42</td>
+                            <td>XS</td>
+                            <td>84-88</td>
+                            <td>65-67</td>
+                        </tr>
+                        <tr>
+                            <td>44-46</td>
+                            <td>S</td>
+                            <td>88-94</td>
+                            <td>67-70</td>
+                        </tr>
+                        <tr>
+                            <td>48-50</td>
+                            <td>M</td>
+                            <td>94-100</td>
+                            <td>70-73</td>
+                        </tr>
+                        <tr>
+                            <td>52-54</td>
+                            <td>L</td>
+                            <td>100-106</td>
+                            <td>73-76</td>
+                        </tr>
+                        <tr>
+                            <td>56-58</td>
+                            <td>XL</td>
+                            <td>106-112</td>
+                            <td>76-79</td>
+                        </tr>
+                        <tr>
+                            <td>60-62</td>
+                            <td>XXL</td>
+                            <td>112-118</td>
+                            <td>79-82</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Tabel pentru pantaloni -->
+            <div id="pantaloni" class="size-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mărime EU</th>
+                            <th>Mărime internațională</th>
+                            <th>Circumferință talie (cm)</th>
+                            <th>Circumferință șold (cm)</th>
+                            <th>Lungime interioară (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>40-42</td>
+                            <td>XS</td>
+                            <td>70-74</td>
+                            <td>86-90</td>
+                            <td>78-80</td>
+                        </tr>
+                        <tr>
+                            <td>44-46</td>
+                            <td>S</td>
+                            <td>74-80</td>
+                            <td>90-96</td>
+                            <td>80-82</td>
+                        </tr>
+                        <tr>
+                            <td>48-50</td>
+                            <td>M</td>
+                            <td>80-86</td>
+                            <td>96-102</td>
+                            <td>82-84</td>
+                        </tr>
+                        <tr>
+                            <td>52-54</td>
+                            <td>L</td>
+                            <td>86-92</td>
+                            <td>102-108</td>
+                            <td>84-86</td>
+                        </tr>
+                        <tr>
+                            <td>56-58</td>
+                            <td>XL</td>
+                            <td>92-98</td>
+                            <td>108-114</td>
+                            <td>86-88</td>
+                        </tr>
+                        <tr>
+                            <td>60-62</td>
+                            <td>XXL</td>
+                            <td>98-104</td>
+                            <td>114-120</td>
+                            <td>88-90</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Tabel pentru jachete -->
+            <div id="jachete" class="size-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mărime EU</th>
+                            <th>Mărime internațională</th>
+                            <th>Circumferință piept (cm)</th>
+                            <th>Lungime mânecă (cm)</th>
+                            <th>Lungime (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>42</td>
+                            <td>XS</td>
+                            <td>84-88</td>
+                            <td>60-61</td>
+                            <td>62-64</td>
+                        </tr>
+                        <tr>
+                            <td>44-46</td>
+                            <td>S</td>
+                            <td>88-94</td>
+                            <td>61-63</td>
+                            <td>64-66</td>
+                        </tr>
+                        <tr>
+                            <td>48-50</td>
+                            <td>M</td>
+                            <td>94-100</td>
+                            <td>63-65</td>
+                            <td>66-68</td>
+                        </tr>
+                        <tr>
+                            <td>52-54</td>
+                            <td>L</td>
+                            <td>100-106</td>
+                            <td>65-67</td>
+                            <td>68-70</td>
+                        </tr>
+                        <tr>
+                            <td>56-58</td>
+                            <td>XL</td>
+                            <td>106-112</td>
+                            <td>67-69</td>
+                            <td>70-72</td>
+                        </tr>
+                        <tr>
+                            <td>60-62</td>
+                            <td>XXL</td>
+                            <td>112-118</td>
+                            <td>69-71</td>
+                            <td>72-74</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Tabel pentru încălțăminte -->
+            <div id="incaltaminte" class="size-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mărime EU</th>
+                            <th>Mărime UK</th>
+                            <th>Mărime US</th>
+                            <th>Lungimea piciorului (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>35</td>
+                            <td>2.5</td>
+                            <td>3.5</td>
+                            <td>22.5</td>
+                        </tr>
+                        <tr>
+                            <td>36</td>
+                            <td>3.5</td>
+                            <td>4.5</td>
+                            <td>23</td>
+                        </tr>
+                        <tr>
+                            <td>37</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>23.5</td>
+                        </tr>
+                        <tr>
+                            <td>38</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>24</td>
+                        </tr>
+                        <tr>
+                            <td>39</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>24.5</td>
+                        </tr>
+                        <tr>
+                            <td>40</td>
+                            <td>6.5</td>
+                            <td>7.5</td>
+                            <td>25</td>
+                        </tr>
+                        <tr>
+                            <td>41</td>
+                            <td>7.5</td>
+                            <td>8.5</td>
+                            <td>26</td>
+                        </tr>
+                        <tr>
+                            <td>42</td>
+                            <td>8</td>
+                            <td>9</td>
+                            <td>26.5</td>
+                        </tr>
+                        <tr>
+                            <td>43</td>
+                            <td>9</td>
+                            <td>10</td>
+                            <td>27.5</td>
+                        </tr>
+                        <tr>
+                            <td>44</td>
+                            <td>9.5</td>
+                            <td>10.5</td>
+                            <td>28</td>
+                        </tr>
+                        <tr>
+                            <td>45</td>
+                            <td>10.5</td>
+                            <td>11.5</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>46</td>
+                            <td>11</td>
+                            <td>12</td>
+                            <td>29.5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="size-info">
+            <h3>Cum să măsori corect</h3>
+            <p>Pentru rezultate optime, măsoară-te direct pe corp, nu peste haine. Folosește un centimetru de croitorie și asigură-te că nu îl strângi prea tare.</p>
+            <ul>
+                <li><strong>Piept:</strong> Măsoară în jurul celei mai late părți a pieptului.</li>
+                <li><strong>Talie:</strong> Măsoară în jurul taliei naturale, la nivelul buricului.</li>
+                <li><strong>Șold:</strong> Măsoară în jurul celei mai late părți a șoldurilor.</li>
+                <li><strong>Lungime interioară pantalon:</strong> Măsoară de la partea interioară a piciorului până la gleznă.</li>
+                <li><strong>Picior:</strong> Măsoară de la călcâi până la vârful degetului mare.</li>
+            </ul>
+        </div>
+    </div>
 
                     </section>
-                    
-                    
-                </section>
-                <section>
-                    <h2>Titlu sectiune 2</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quam officia reprehenderit rem amet hic laboriosam! Rerum dolores eius ex culpa, quas quisquam ab expedita qui officia perferendis, nulla saepe alias.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis impedit unde eos neque sunt ullam cum quas laboriosam facere quos, earum molestias labore praesentium tempore asperiores! Mollitia explicabo recusandae suscipit.</p>
-                    <p>Un paragraf.</p>
-                    <section id="subsectiune2">
-                        <h3>Titlu subsectiune 2</h3>
-                        <p>Un paragraf.</p>
+                    <section class="section4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</section>
+                    <section class="section8">
+                        <section id="subsectiune1">
+                            <h3>Stil Streetwear Autentic</h3>
+                            <p>Brandul UrbanVibe oferă cele mai trendy articole de <strong>streetwear</strong> și <strong>modă urbană</strong> pentru cei care doresc să își exprime individualitatea prin outfit-uri cool și autentice.</p>
+                            <p>Colecțiile noastre de <strong>haine casual</strong> sunt create pentru a completa perfect stilul urban al tinerilor pasionați de cultura hip-hop și street art. Descoperă tricouri oversized, pantaloni cargo și hanorace cu design limited edition.</p>
+                            <p>Fiecare articol din magazinul nostru reprezintă o expresie a creativității și pasiunii pentru <strong>moda stradală</strong>. Materialele premium și croiurile moderne asigură confort și stil pentru orice activitate urbană.</p>
+                            <p>Brandul UrbanVibe colaborează cu designeri internaționali pentru a crea piese <strong>exclusive</strong> care îmbină perfect elementele de <strong>hip-hop fashion</strong> cu tendințele actuale din moda internațională.</p>
+                            <p>Colecțiile noastre sunt mereu actualizate pentru a reflecta cele mai noi tendințe în <strong>streetwear</strong> și <strong>modă urbană</strong>, astfel încât să poți fi mereu în pas cu ultimele evoluții din industria modei.</p>
+                            <p>Ne distingem prin <strong>haine premium</strong> care au un raport calitate-preț excelent, fiecare articol fiind creat cu atenție la detalii și pasiune pentru <strong>stilul urban</strong>.</p>
+                            <p>Oferim o gamă variată de <strong>outfit-uri cool</strong> care se potrivesc perfect evenimentelor urbane, concertelor și festivalurilor de muzică unde <strong>moda stradală</strong> este în centrul atenției.</p>
+                            <p>În magazinul nostru vei găsi articole în <strong>ediție limitată</strong> care îți vor completa perfect colecția de <strong>streetwear</strong> și îți vor pune în valoare personalitatea și stilul unic.</p>
+                            <p>Comunitatea UrbanVibe este formată din tineri pasionați de <strong>streetwear</strong> și <strong>modă urbană</strong> care împărtășesc aceeași pasiune pentru autenticitate și originalitate în stil.</p>
+                            <p>Echipa noastră de designeri urmărește îndeaproape evoluția <strong>modei stradale</strong> și a <strong>hip-hop fashion</strong> pentru a crea colecții care să răspundă perfect cerințelor și așteptărilor clienților noștri.</p>
+                            <p>La UrbanVibe, <strong>stilul urban</strong> nu este doar o tendință, ci un mod de viață care se reflectă în fiecare articol din colecțiile noastre de <strong>haine casual</strong> și <strong>outfit-uri cool</strong>.</p>
+                        </section>
+                        
+                        <section id="subsectiune2">
+                            <h3>Accesorii Premium pentru Outfit-uri Complete</h3>
+                            <p>Completează-ți stilul urban cu accesoriile noastre <strong>premium</strong> care adaugă personalitate și autenticitate oricărui <strong>outfit cool</strong>.</p>
+                            <p>Colecția noastră de accesorii pentru <strong>streetwear</strong> include șepci, căciuli, genți, rucsacuri și bijuterii care reflectă perfect esența <strong>modei urbane</strong> contemporane.</p>
+                            <p>Accesoriile UrbanVibe sunt create din materiale de cea mai bună calitate și reprezintă complementul perfect pentru <strong>hainele casual</strong> din colecțiile noastre.</p>
+                            <p>Descoperă cele mai noi tendințe în <strong>accesorii streetwear</strong> și adaugă un plus de stil urban ținutelor tale zilnice cu produsele noastre <strong>limited edition</strong>.</p>
+                            <p>Brandul nostru oferă accesorii inspirate din <strong>hip-hop fashion</strong> care îți permit să îți exprimi personalitatea și pasiunea pentru <strong>cultura urbană</strong>.</p>
+                            <p>Colecțiile de accesorii sunt actualizate în permanență pentru a include cele mai noi tendințe din <strong>moda stradală</strong> internațională.</p>
+                            <p>Echipa de designeri UrbanVibe creează accesorii <strong>streetwear</strong> care se remarcă prin originalitate și calitate, perfecte pentru a completa orice <strong>outfit urban</strong>.</p>
+                            <p>Accesoriile noastre sunt concepute pentru a fi versatile și pentru a se potrivi perfect cu articolele de îmbrăcăminte din colecțiile noastre de <strong>modă urbană</strong>.</p>
+                            <p>Fiecare accesoriu din magazinul nostru reflectă pasiunea pentru <strong>streetwear</strong> și dedicarea noastră pentru a oferi produse de cea mai bună calitate clienților noștri.</p>
+                            <p>Descoperă cum accesoriile potrivite pot transforma complet o ținută simplă într-un <strong>outfit cool</strong> care atrage toate privirile.</p>
+                        </section>
+                        <section id="sectiune-principala">
+                            <h2>Colecția UrbanVibe - Modă Urbană Autentică</h2>
+                            <p>Descoperă colecția noastră de haine premium și accesorii streetwear care definesc stilul urban modern.</p>
+                            
+        
+                            <section class="featured-products">
+                                <div class="section-header">
+                                    <h2>Colecția Nouă</h2>
+                                    <p>Descoperă cele mai recente produse din magazinul nostru</p>
+                                </div>
+                                
+                                <div class="product-grid">
+                                
+                                    <div class="product-card">
+                                        <div class="product-badge">Nou</div>
+                                        <div class="product-image">
+                                            <i class="fa-solid fa-image fa-bounce" ></i>
+                                            <img src="./Resurse/Imagini/product-1.jpg" alt="Tricou Oversized Urban">
+                                            <div class="product-actions">
+                                                <button class="quick-view">Previzualizare</button>
+                                                <button class="add-to-cart">Adaugă în coș</button>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-title">Tricou Oversized Urban</h3>
+                                            <p class="product-category">Bărbați</p>
+                                            <div class="product-price">
+                                                <span class="current-price">149 Lei</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-card">
+                                        <div class="product-badge sale">-20%</div>
+                                        <div class="product-image">
+                                            <i class="fa-solid fa-image fa-bounce" ></i>
+                                            <img src="./Resurse/Imagini/product-2.jpg" alt="Pantaloni Cargo">
+                                            <div class="product-actions">
+                                                <button class="quick-view">Previzualizare</button>
+                                                <button class="add-to-cart">Adaugă în coș</button>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-title">Pantaloni Cargo Premium</h3>
+                                            <p class="product-category">Bărbați</p>
+                                            <div class="product-price">
+                                                <span class="original-price">249 Lei</span>
+                                                <span class="current-price">199 Lei</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-card">
+                                        <div class="product-badge">Limited</div>
+                                        <div class="product-image">
+                                            <i class="fa-solid fa-image fa-bounce" ></i>
+                                            <img src="./Resurse/Imagini/product-3.jpg" alt="Crop Top Street">
+                                            <div class="product-actions">
+                                                <button class="quick-view">Previzualizare</button>
+                                                <button class="add-to-cart">Adaugă în coș</button>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-title">Crop Top Street Style</h3>
+                                            <p class="product-category">Femei</p>
+                                            <div class="product-price">
+                                                <span class="current-price">129 Lei</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="product-card">
+                                        <div class="product-image">
+                                            <i class="fa-solid fa-image fa-bounce" ></i>
+                                            <img src="./Resurse/Imagini/product-4.jpg" alt="Hanorac Streetwear">
+                                            <div class="product-actions">
+                                                <button class="quick-view">Previzualizare</button>
+                                                <button class="add-to-cart">Adaugă în coș</button>
+                                            </div>
+                                        </div>
+                                        <div class="product-info">
+                                            <h3 class="product-title">Hanorac Streetwear Oversize</h3>
+                                            <p class="product-category">Unisex</p>
+                                            <div class="product-price">
+                                                <span class="current-price">219 Lei</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="view-more">
+                                    <a href="#" class="button">Vezi toate produsele</a>
+                                </div>
+                            </section>
+                        </section>
+                        <!--Exercitiul 8-->
+                        <figure>
+                            <picture>
+                                <!-- Imagine pentru mobil -->
+                                <source media="(max-width: 600px)" srcset="./Resurse/Imagini/streetwear-small.jpg">
+                                <!-- Imagine pentru tableta -->
+                                <source media="(max-width: 900px)" srcset="./Resurse/Imagini/streetwear-medium.jpg">
+                                <!-- Imagine pentru desktop -->
+                                <img src="./Resurse/Imagini/streetwear-large.jpg" alt="Streetwear Fashion" style="width: 100%; height: auto;">
+                            </picture>
+        
+                            
+        
+                            <figcaption style="text-align: center; font-style: italic; margin-top: 10px;">
+                                <!--Exercitiul 9-->
+                                Streetwear Fashion - Cele mai noi tendințe în moda urbană.
+                            </figcaption>
+                        </figure>
+                        <!--Exercitiul 10-->
+                        <p>
+                            Descopera ce mai noi colectii de <b>
+                                haine streetwear
+                            </b>
+                            si <b>moda urbană</b> la <i>UrbanVibe</i>! Avem o gamă variată de
+                            <b>tricouri oversized</b>, 
+                            <b>pantaloni cargo</b> si
+                            <b>hanorace trandy</b> pentru a-ți completa 
+                            <b>outfit-ul.</b>
+        
+                        </p>
+                        <p>
+                            <b>Streetwear</b> este un stil de viață, nu doar o tendință vestimentară
+                        </p>
+                        <p>
+                            <i>Hip-hop fashion</i> a influențat puternic moda urbană.
+                        </p>
+                        <p>
+                            <strong>Atenție:</strong> Produsele noastre sunt disponibile în cantități limitate !!!
+                        </p>
+                        <div>
+                            <a href="#" data-video="UBTBsZ05mVY">Videoclip 1</a>
+                            <a href="#" data-video="5i0vYvWcaGo">Videoclip 2</a><br>
+                        </div>
+                        <!--Exercitiul 11-->
+                        <iframe title="Videoclip 1" id="videoFrame1" width="560" height="315" src="https://www.youtube.com/embed/UBTBsZ05mVY"  allowfullscreen></iframe>
+                        <iframe title="Videoclip 2" id="videoFrame2" width="560" height="315" src="https://www.youtube.com/embed/5i0vYvWcaGo"  allowfullscreen></iframe>
+                        
+                        <!--Aici nu stiu cum trebuie făcut-->
+                        <a href="./Resurse/Videoclipuri/watch.mp4" download="watch.mp4">Descarcă videoclipul 2</a>
+        
+                        <!--Exercitiul 12-->
+                        <details>
+                            <summary>Care este politica de retur?</summary>
+                            <p>Acceptăm returnări în termen de 30 de zile de la cumpărare.</p>
+                        </details>
+                        <details>
+                            <summary>Cum aleg mărimea corectă?</summary>
+                            <p>Consultă ghidul nostru de mărimi pentru a alege mărimea potrivită.</p>
+                        </details>
+        
+        
+                        <!-- MathML Formula Section -->
+                    <section id="discount-section">
+                        <h2>Oferte și Reduceri</h2>
+                        <p>La UrbanVibe, oferim reduceri speciale pentru membrii comunității noastre. Calculăm prețul final folosind următoarea formulă:</p>
+                        
+                        <div class="formula-container">
+                            <p>Preț final = Preț inițial × (1 - </p>
+                            <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+                                <mrow>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>procent reducere</mi>
+                                        </mrow>
+                                        <mrow>
+                                            <mn>100</mn>
+                                        </mrow>
+                                    </mfrac>
+                                </mrow>
+                            </math>
+                            <p>)</p>
+                        </div>
+                        
+                        <p>De exemplu, pentru un tricou oversized de <strong>299 lei</strong> cu reducere de <strong>20%</strong>, prețul final va fi:</p>
+                        <div class="formula-container">
+                            <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+                                <mrow>
+                                    <mi>Preț final</mi>
+                                    <mo>=</mo>
+                                    <mn>299</mn>
+                                    <mo>×</mo>
+                                    <mo>(</mo>
+                                    <mn>1</mn>
+                                    <mo>-</mo>
+                                    <mfrac>
+                                        <mn>20</mn>
+                                        <mn>100</mn>
+                                    </mfrac>
+                                    <mo>)</mo>
+                                    <mo>=</mo>
+                                    <mn>299</mn>
+                                    <mo>×</mo>
+                                    <mn>0.8</mn>
+                                    <mo>=</mo>
+                                    <mn>239.2</mn>
+                                    <mi>lei</mi>
+                                </mrow>
+                            </math>
+                        </div>
                     </section>
-                </section>
-                <!--Exercitiul 8-->
-                <figure>
-                    <picture>
-                        <!-- Imagine pentru mobil -->
-                        <source media="(max-width: 600px)" srcset="./Resurse/Imagini/streetwear-small.jpg">
-                        <!-- Imagine pentru tableta -->
-                        <source media="(max-width: 900px)" srcset="./Resurse/Imagini/streetwear-medium.jpg">
-                        <!-- Imagine pentru desktop -->
-                        <img src="./Resurse/Imagini/streetwear-large.jpg" alt="Streetwear Fashion" style="width: 100%; height: auto;">
-                    </picture>
-                    <figcaption style="text-align: center; font-style: italic; margin-top: 10px;">
-                        <!--Exercitiul 9-->
-                        Streetwear Fashion - Cele mai noi tendințe în moda urbană.
-                    </figcaption>
-                </figure>
-                <!--Exercitiul 10-->
-                <p>
-                    Descopera ce mai noi colectii de <b>
-                        haine streetwear
-                    </b>
-                    si <b>moda urbană</b> la <i>UrbanVibe</i>! Avem o gamă variată de
-                    <b>tricouri oversized</b>, 
-                    <b>pantaloni cargo</b> si
-                    <b>hanorace trandy</b> pentru a-ți completa 
-                    <b>outfit-ul.</b>
-
-                </p>
-                <p>
-                    <b>Streetwear</b> este un stil de viață, nu doar o tendință vestimentară
-                </p>
-                <p>
-                    <i>Hip-hop fashion</i> a influențat puternic moda urbană.
-                </p>
-                <p>
-                    <strong>Atenție:</strong> Produsele noastre sunt disponibile în cantități limitate !!!
-                </p>
-                <div>
-                    <a href="#" data-video="UBTBsZ05mVY">Videoclip 1</a>
-                    <a href="#" data-video="5i0vYvWcaGo">Videoclip 2</a><br>
-                </div>
-                <!--Exercitiul 11-->
-                <iframe title="Videoclip 1" id="videoFrame1" width="560" height="315" src="https://www.youtube.com/embed/UBTBsZ05mVY"  allowfullscreen></iframe>
-                <iframe title="Videoclip 2" id="videoFrame2" width="560" height="315" src="https://www.youtube.com/embed/5i0vYvWcaGo"  allowfullscreen></iframe>
-                
-                <!--Aici nu stiu cum trebuie făcut-->
-                <a href="./Resurse/Videoclipuri/watch.mp4" download="watch.mp4">Descarcă videoclipul 2</a>
-
-                <!--Exercitiul 12-->
-                <details>
-                    <summary>Care este politica de retur?</summary>
-                    <p>Acceptăm returnări în termen de 30 de zile de la cumpărare.</p>
-                </details>
-                <details>
-                    <summary>Cum aleg mărimea corectă?</summary>
-                    <p>Consultă ghidul nostru de mărimi pentru a alege mărimea potrivită.</p>
-                </details>
-
-
-                <!-- MathML Formula Section -->
-            <section id="discount-section">
-                <h2>Oferte și Reduceri</h2>
-                <p>La UrbanVibe, oferim reduceri speciale pentru membrii comunității noastre. Calculăm prețul final folosind următoarea formulă:</p>
-                
-                <div class="formula-container">
-                    <p>Preț final = Preț inițial × (1 - </p>
-                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
-                        <mrow>
-                            <mfrac>
-                                <mrow>
-                                    <mi>procent reducere</mi>
-                                </mrow>
-                                <mrow>
-                                    <mn>100</mn>
-                                </mrow>
-                            </mfrac>
-                        </mrow>
-                    </math>
-                    <p>)</p>
-                </div>
-                
-                <p>De exemplu, pentru un tricou oversized de <strong>299 lei</strong> cu reducere de <strong>20%</strong>, prețul final va fi:</p>
-                <div class="formula-container">
-                    <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
-                        <mrow>
-                            <mi>Preț final</mi>
-                            <mo>=</mo>
-                            <mn>299</mn>
-                            <mo>×</mo>
-                            <mo>(</mo>
-                            <mn>1</mn>
-                            <mo>-</mo>
-                            <mfrac>
-                                <mn>20</mn>
-                                <mn>100</mn>
-                            </mfrac>
-                            <mo>)</mo>
-                            <mo>=</mo>
-                            <mn>299</mn>
-                            <mo>×</mo>
-                            <mn>0.8</mn>
-                            <mo>=</mo>
-                            <mn>239.2</mn>
-                            <mi>lei</mi>
-                        </mrow>
-                    </math>
-                </div>
-            </section>
-
-            <!-- PDF Embed Section -->
-            <section id="catalog-section">
-                <h2>Catalogul Nostru</h2>
-                <p>Descoperă colecția noastră completă în catalogul de mai jos:</p>
-                
-                <embed src="./Resurse/Documente/catalog-urbanvibe-2025.pdf" type="application/pdf" width="1500" height="600" 
-                    title="Catalog UrbanVibe 2025" />
-                
-                <p>Nu se încarcă catalogul? <a href="./Resurse/Documente/catalog-urbanvibe-2025.pdf" download>Descarcă catalogul în format PDF</a></p>
-                
-                
-            </section>
-
-            <!-- Image Map Section -->
-<section id="flagship-store-section">
-    <h2>Magazinul Nostru Flagship</h2>
-    <p>Ne găsești în inima Bucureștiului, lângă Facultatea de Matematică și Informatică. Navighează pe <a href="#find-us-section">hartă</a> pentru a descoperi zonele din apropiere:</p>
-    
-    <div class="store-location" style="position: relative; width: 800px; margin: 0 auto;">
         
-        <img src="./Resurse/Imagini/streetwear-medium.jpg" 
-             alt="Locația magazinului UrbanVibe" 
-             usemap="#store-map" 
-             width="800" 
-             height="500"
-             style="border: 2px solid #333; max-width: 100%; height: auto;">
+                    <!-- PDF Embed Section -->
+                    <section id="catalog-section">
+                        <h2>Catalogul Nostru</h2>
+                        <p>Descoperă colecția noastră completă în catalogul de mai jos:</p>
+                        
+                        <embed src="./Resurse/Documente/catalog-urbanvibe-2025.pdf" type="application/pdf" width="1500" height="600" 
+                            title="Catalog UrbanVibe 2025" />
+                        
+                        <p>Nu se încarcă catalogul? <a href="./Resurse/Documente/catalog-urbanvibe-2025.pdf" download>Descarcă catalogul în format PDF</a></p>
+                        
+                        
+                    </section>
         
-        <map name="store-map">
+                    <!-- Image Map Section -->
+        <section id="flagship-store-section">
+            <h2>Magazinul Nostru Flagship</h2>
+            <p>Ne găsești în inima Bucureștiului, lângă Facultatea de Matematică și Informatică. Navighează pe <a href="#find-us-section">hartă</a> pentru a descoperi zonele din apropiere:</p>
             
-            <area shape="circle" 
-                  coords="400,250,50" 
-                  href="#store-info" 
-                  alt="Magazinul UrbanVibe" 
-                  title="Click pentru a vedea detalii despre Magazinul UrbanVibe">
-     
-            <area shape="rect" 
-                  coords="500,200,650,300" 
-                  href="https://fmi.unibuc.ro/" 
-                  target="_blank" 
-                  alt="Facultatea de Matematică și Informatică" 
-                  title="Click pentru a vizita site-ul Facultății de Matematică și Informatică">
+            <div class="store-location" style="position: relative; width: 800px; margin: 0 auto;">
+                
+                <img src="./Resurse/Imagini/streetwear-medium.jpg" 
+                     alt="Locația magazinului UrbanVibe" 
+                     usemap="#store-map" 
+                     width="800" 
+                     height="500"
+                     style="border: 2px solid #333; max-width: 100%; height: auto;">
+                
+                <map name="store-map">
+                    
+                    <area shape="circle" 
+                          coords="400,250,50" 
+                          href="#store-info" 
+                          alt="Magazinul UrbanVibe" 
+                          title="Click pentru a vedea detalii despre Magazinul UrbanVibe">
+             
+                    <area shape="rect" 
+                          coords="500,200,650,300" 
+                          href="https://fmi.unibuc.ro/" 
+                          target="_blank" 
+                          alt="Facultatea de Matematică și Informatică" 
+                          title="Click pentru a vizita site-ul Facultății de Matematică și Informatică">
+                    
+                    <area shape="poly" 
+                          coords="200,150,250,100,300,150,250,200" 
+                          href="#park-info" 
+                          alt="Parcul Cișmigiu" 
+                          title="Click pentru a vedea detalii despre Parcul Cișmigiu">
+                </map>
+            </div>
             
-            <area shape="poly" 
-                  coords="200,150,250,100,300,150,250,200" 
-                  href="#park-info" 
-                  alt="Parcul Cișmigiu" 
-                  title="Click pentru a vedea detalii despre Parcul Cișmigiu">
-        </map>
-    </div>
-    
-    <div id="store-info" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #f8f8f8;">
-        <h3>UrbanVibe Flagship Store</h3>
-        <p>Strada Academiei, București</p>
-        <p>Program: Luni-Vineri 10:00-20:00, Weekend 11:00-18:00</p>
-        <a href="#find-us-section">Înapoi la hartă</a>
-    </div>
-    
-    <div id="park-info" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #f8f8f8;">
-        <h3>Parcul Cișmigiu</h3>
-        <p>Relaxează-te în parcul din apropierea magazinului nostru.</p>
-        <p>Un loc perfect pentru o plimbare după shopping.</p>
-        <a href="#find-us-section">Înapoi la hartă</a>
-    </div>
-</section>
-
-<!-- Google Maps Iframe Section -->
-<section id="find-us-section">
-    <h2>Găsește-ne pe Hartă</h2>
-    <p>Vizitează magazinul nostru la adresa: Strada Academiei, București, lângă Facultatea de Matematică și Informatică.</p>
-    
-    <div style="width: 100%; max-width: 800px; margin: 0 auto;">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.8864314878895!2d26.09799871554803!3d44.43573397910195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f8182ab%3A0x84c3adc335494db1!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83%2C%20Universitatea%20din%20Bucure%C8%99ti!5e0!3m2!1sro!2sro!4v1645530272000!5m2!1sro!2sro" 
-            width="1000" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy"
-            title="Locația magazinului UrbanVibe">
-        </iframe>
-    </div>
-</section>
+            <div id="store-info" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #f8f8f8;">
+                <h3>UrbanVibe Flagship Store</h3>
+                <p>Strada Academiei, București</p>
+                <p>Program: Luni-Vineri 10:00-20:00, Weekend 11:00-18:00</p>
+                <a href="#find-us-section">Înapoi la hartă</a>
+            </div>
+            
+            <div id="park-info" style="margin-top: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #f8f8f8;">
+                <h3>Parcul Cișmigiu</h3>
+                <p>Relaxează-te în parcul din apropierea magazinului nostru.</p>
+                <p>Un loc perfect pentru o plimbare după shopping.</p>
+                <a href="#find-us-section">Înapoi la hartă</a>
+            </div>
+        </section>
+        
+        <!-- Google Maps Iframe Section -->
+        <section id="find-us-section">
+            <h2>Găsește-ne pe Hartă</h2>
+            <p>Vizitează magazinul nostru la adresa: Strada Academiei, București, lângă Facultatea de Matematică și Informatică.</p>
+            
+            <div style="width: 100%; max-width: 800px; margin: 0 auto;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.8864314878895!2d26.09799871554803!3d44.43573397910195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f8182ab%3A0x84c3adc335494db1!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83%2C%20Universitatea%20din%20Bucure%C8%99ti!5e0!3m2!1sro!2sro!4v1645530272000!5m2!1sro!2sro" 
+                    width="1000" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy"
+                    title="Locația magazinului UrbanVibe">
+                </iframe>
+            </div>
+        </section>
+                    </section>
+                   
+                </div>
+                
 
             </main>
             <footer>
-                <a href="#">Link inceput</a>
+                <a href="#top" class="link-top" aria-label="Scroll to top"></a>
 
                 <address>
+                    <i class="fa-solid fa-phone"></i>
                     <a href="tel:+40123456789">+40 123 456 789</a><br>
+                    <i class="fa-solid fa-globe"></i>
                     <a href="https://www.google.com/maps/place/Facultatea+de+Matematică+și+Informatică" target="_blank">Strada Academiei, București</a><br>
+                    <i class="fa-solid fa-envelope"></i>
                     <a href="mailto:contact@urbanvibe.com">contact@urbanvibe.com</a><br>
+                    <i class="fa-solid fa-comments"></i>
                     <a href="https://wa.me/40123456789">Chat cu noi pe WhatsApp</a><br>
                     <small>&copy; <time datetime="2025-02-24">24 februarie 2025</time> UrbanVibe. Toate drepturile rezervate.</small>
                 </address>
