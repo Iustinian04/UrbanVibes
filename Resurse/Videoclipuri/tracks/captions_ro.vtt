@@ -1,0 +1,21 @@
+WEBVTT - subtitrare in romana pentru Streetwear Ad
+
+STYLE
+::cue {
+  color:  #2D3142;
+  background-color: #D4816B;
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+00:00.000 --> 00:09.200 line:90 position: 50% align: middle
+<c>Descoperă colecția UrbanVibe – stil simplu,<u>autentic</u><\c>
+
+00:09.300 --> 00:18.900 align:end size:25% position:98% line:0
+<c>Texturi fine. Culori neutre. Detalii care inspiră!</c>
+
+00:19.000 --> 00:25.000 line:90 position: 50% align: middle
+<c>Poartă ceea ce te definește. UrbanVibe.</c>
+

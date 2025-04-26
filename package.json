@@ -1,0 +1,19 @@
+{
+  "name": "laborator-1",
+  "version": "1.0.0",
+  "description": "UrbanVibe",
+  "keywords": [
+    "moda",
+    "urbana"
+  ],
+  "license": "ISC",
+  "author": "Trifan Iustinian Luca",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

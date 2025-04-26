@@ -1,0 +1,21 @@
+WEBVTT - english subtitle for Streetwear Ad
+
+STYLE
+::cue {
+  color:  #222222;
+  background-color: #c7514d;
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+00:00.000 --> 00:09.200 line:90 position: 50% align: middle
+<c>Discover UrbanVibe collection - clean & <u>authentic</u><\c>
+
+00:09.300 --> 00:18.900 align:end size:25% position:98% line:0
+<c>Fine textures. Neutral colors. Details that inspire!</c>
+
+00:19.000 --> 00:25.000 line:90 position: 50% align: middle
+<c>Wear what defines you. UrbanVibe!</c>
+

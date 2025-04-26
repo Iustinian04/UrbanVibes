@@ -1,0 +1,141 @@
+@media print {
+    @page {
+        margin-top: 60px;
+    }
+    
+    #absolut {
+        display: none; /* Hidden by default */
+    }
+    #watermark {
+        display: none; /* Hide by default */
+    }
+    /* Only show on first page */
+    #absolut:first-of-type {
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        border: 2px dotted black;
+        padding: 10px;
+        text-align: center;
+        position: absolute; /* Changed from fixed */
+        top: 40px;
+        left: 10%;
+        box-sizing: border-box;
+        font-weight: bold;
+        z-index: 1000;
+        background-color: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    
+    #absolut::before {
+        content: "Acesta este un proiect școlar  ";
+    }
+    
+    /* Add spacing to prevent content overlap */
+    .site-header {
+        margin-top: 80px  ;
+    }
+    figure {
+        display: none  ;
+    }
+    #catalog-section {
+        display: none  ; /* Hide catalog section */
+    }
+    .link-top{
+        display: none  ; /* Hide the link to the top of the page */
+    }
+    #sectiune-principala{
+        display: none  ; /* Hide product images */
+    }
+    #find-us-section{
+        display: none  ; /* Hide find us section */
+    }
+    .container-iframe{
+        display: none  ; /* Hide iframe container */
+    }
+    .container{
+        font-size: 10px;
+        box-sizing: border-box;
+        background-color: white;
+        page-break-before: always;
+        display: block;
+    }
+    #user-actions{
+        display: none  ; /* Hide user actions */
+    }
+    /* Hide elements dependent on media (e.g., captions or descriptions) */
+    body figcaption, body .image-description, body .media-caption {
+        display: none  ;
+    }
+    img {
+        display: none; 
+    }
+    /* Hide the link to the top of the page */
+    body a[href="#top"] {
+        display: none  ;
+    }
+    a {
+        color: inherit !important; /* Use the same color as surrounding text */
+        text-decoration: none !important; /* Remove underlining */
+    }
+
+    #titlu {
+        display: block; /* Always show the title */
+        text-align: center;
+        font-size: 2.5em; /* 2.5 times the HTML font size */
+        text-decoration: underline;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        page-break-after: always;
+    }
+    nav, .menu, #menu {
+        display: none !important; /* Hide the menu */
+    }
+    .header-container > *:not(.logo-container) {
+        display: none !important; /* Hide everything except the logo container */
+    }
+    .promo-banner {
+        display: none !important; /* Hide the promo banner */
+    }
+    .tagline {
+        display: none !important; /* Hide the tagline */
+    }
+    footer {
+        page-break-before: always; /* Add a page break before the footer */
+    }
+
+    #watermark {
+        display: block;
+        position: fixed;
+        top: 0cm;
+        right: 1cm; 
+        width: 150px;
+        height: 2cm;
+        border: 5px double black;
+        opacity: 0.65;
+        text-align: center;
+        line-height: 2cm;
+        font-size: 12px;
+        font-weight: bold;
+        color: black;
+        pointer-events: none; 
+        z-index: 1000;
+    }
+
+    #watermark::after {
+        content: "Trifan Iustinian Luca";
+    }
+    @page:left {
+        margin-left: 2.5cm;
+        margin-right: 0.5cm;
+    }
+
+    @page:right {
+        margin-left: 0.5cm;
+        margin-right: 2.5cm;
+    }
+}

@@ -1044,3 +1044,37 @@
 
 /*Etapa 3 */
 
+.imagine {
+  max-width: 38%;
+}
+
+/*Etapa 4 linkuri*/
+main #stilizare-linkuri-etapa4 a {
+  position: relative;
+  /* color: black; */
+  text-decoration: none;
+  background-image: radial-gradient(circle, var(--color-highlight) 0%, var(--color-highlight) 40%, transparent 80%, transparent 100%);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 0% 0%;
+  transition: background-size 0.4s ease;
+  z-index: 0;
+}
+
+main #stilizare-linkuri-etapa4 a:hover {
+  background-size: 100% 100%;
+}
+#stilizare-linkuri-etapa4 a:visited{
+  color: purple;
+}
+#stilizare-linkuri-etapa4 a[href^="http"]::before{
+  content: "⮳";
+  font-size: 1.5rem;
+}
+#stilizare-linkuri-etapa4 a:hover{
+  color: var(--color-text);
+}
+#stilizare-linkuri-etapa4 a:active{
+  border:1px solid purple;
+}
+

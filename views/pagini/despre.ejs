@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        
+        <meta name="keywords" content="streetwear, modă urbană, haine casual, outfit cool, limited edition, haine premium, stil urban, hip-hop fashion"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+      <meta name="description" content="Curs de Tehnici Web. Limbajul HTML. Taguri."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+      
+    <title>UrbanVibe</title>
+        <%- include("../fragmente/head.ejs") %>
+        <link rel="stylesheet" type="text/css" href="/Resurse/CSS/video-despre-noi.css">
+
+    </head>
+    <body>
+    <%- include("../fragmente/header.ejs") %> 
+    <main>
+       <p>Despre magazin....</p>
+        <video controls preload="metadata" style="width:80%;height:auto" poster="../Resurse/Videoclipuri/images.jfif">
+            
+            <source src="../Resurse/Videoclipuri/Essentials Clothing Shoot _ Promotional Video.mp4" type="video/mp4">
+            <source src="../Resurse/Videoclipuri/freddy-freddy-fazbear.ogv" type="video/ogv">
+           
+            <track  default src="Resurse/Videoclipuri/tracks/captions_ro.vtt" kind="captions" srclang="ro" label="romană" />
+            <track src="Resurse/Videoclipuri/tracks/captions_en.vtt" kind="captions" srclang="en" label="engleză" />
+    </video>
+    </main>
+    <%- include("../fragmente/footer.ejs") %>
+
+    </body>
+</html>

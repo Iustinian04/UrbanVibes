@@ -6,24 +6,29 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
       <meta name="keywords" content="streetwear, modă urbană, haine casual, outfit cool, limited edition, haine premium, stil urban, hip-hop fashion"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
       <meta name="description" content="Curs de Tehnici Web. Limbajul HTML. Taguri."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+      
       <meta name="author" content="Trifan Iustinian Luca">  <!-- autorul/autoarea paginii-->
       <link rel="stylesheet" href="./Resurse/CSS/General2.css">
       <link rel="stylesheet" href="./Resurse/CSS/nav.css">
       <link rel="stylesheet" href="./Resurse/CSS/nav-mediu.css">
       <link rel="stylesheet" href="./Resurse/CSS/nav-mic.css">
+      <link rel="stylesheet" href="./Resurse/CSS/printare.css">
       <link rel="icon" type="image/png" href="./Resurse/Imagini/favicon_io/favicon-32x32.png" sizes="32x32" />
         <link rel="icon" type="image/svg+xml" href="./Resurse/Imagini/favicon_io/favicon.svg" />
         <link rel="shortcut icon" href="./Resurse/Imagini/favicon_io/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="./Resurse/Imagini/favicon_io/apple-touch-icon.png" />
         <link rel="manifest" href="./Resurse/Imagini/favicon_io/site.webmanifest" />
         <script src="https://kit.fontawesome.com/6538d875bb.js" crossorigin="anonymous"></script>
+    
+    
     </head>
 
     <body>
+       <p id="watermark"></p>
         <header class="site-header">
             <div class="header-container">
                 <div class="logo-container">
-                    <h1>UrbanVibe</h1>
+                    <h1 id="titlu">UrbanVibe</h1>
                     <p class="tagline">Streetwear & Casual</p>
                 </div>
                 
@@ -51,18 +56,22 @@
 
             <input type="checkbox" id="mobile-menu-toggle" class="mobile-menu-checkbox">
             <label for="mobile-menu-toggle" class="mobile-menu-button">
+
+
             <div class="hamburger">
-                <span>a</span>
+                <span></span>
                 <span></span>
                 <span></span>
             </div>
+
+
             </label>
             <nav class="main-nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="index2.html" class="nav-link active">
-                            <span class="nav-text">Acasă</span>
+                        <a href="index2.html" class="nav-link">
                             <i class="fa-solid fa-house nav-icon"></i>
+                            <span class="nav-text">Acasă</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -91,9 +100,9 @@
                             <li><a href="#" class="dropdown-link">Haine sustenabile</a></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="nav-link">Lookbook</a></li>
-                    <li><a href="#" class="nav-link">Despre noi</a></li>
-                    <li><a href="#" class="nav-link">Contact & Suport</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Lookbook</a></li>
+<li class="nav-item"><a href="#" class="nav-link">Despre noi</a></li>
+<li class="nav-item"><a href="#" class="nav-link">Contact & Suport</a></li>
                 </ul>
             </nav>
             
@@ -221,6 +230,8 @@
                             <p>Fiecare accesoriu din magazinul nostru reflectă pasiunea pentru <strong>streetwear</strong> și dedicarea noastră pentru a oferi produse de cea mai bună calitate clienților noștri.</p>
                             <p>Descoperă cum accesoriile potrivite pot transforma complet o ținută simplă într-un <strong>outfit cool</strong> care atrage toate privirile.</p>
                         </section>
+
+                        
                         <section id="sectiune-principala">
                             <h2>Colecția UrbanVibe - Modă Urbană Autentică</h2>
                             <p>Descoperă colecția noastră de haine premium și accesorii streetwear care definesc stilul urban modern.</p>
@@ -370,12 +381,6 @@
                         
                         
 
-                        
-                        <!--Exercitiul 11-->
-                        
-                        <!--Aici nu stiu cum trebuie făcut-->
-                        <a href="./Resurse/Videoclipuri/watch.mp4" download="watch.mp4">Descarcă videoclipul 2</a>
-        
                         <!--Exercitiul 12-->
                         <details>
                             <summary>Care este politica de retur?</summary>
@@ -463,7 +468,6 @@
                      width="800" 
                      height="500"
                      style="border: 2px solid #333; max-width: 100%; height: auto;">
-                
                 <map name="store-map">
                     
                     <area shape="circle" 
@@ -523,11 +527,11 @@
                    
                 </div>
                 
-
             </main>
+
+
             <footer>
                 <a href="#top" class="link-top" aria-label="Scroll to top"></a>
-
                 <address>
                     <i class="fa-solid fa-phone"></i>
                     <a href="tel:+40123456789">+40 123 456 789</a><br>
@@ -539,6 +543,7 @@
                     <a href="https://wa.me/40123456789">Chat cu noi pe WhatsApp</a><br>
                     <small>&copy; <time datetime="2025-02-24">24 februarie 2025</time> UrbanVibe. Toate drepturile rezervate.</small>
                 </address>
+                <p id="absolut"></p>
             </footer>
     </body>
 </html>
