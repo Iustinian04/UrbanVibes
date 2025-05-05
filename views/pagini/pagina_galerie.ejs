@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <title>UrbanVibe</title>
+    <meta name="keywords" content="streetwear, modă urbană, haine casual, outfit cool, limited edition, haine premium, stil urban, hip-hop fashion"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+    <meta name="description" content="Curs de Tehnici Web. Limbajul HTML. Taguri."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+    <link rel="stylesheet" href="./Resurse/CSS/galerii.css">
+
+
+      <%- include("../fragmente/head.ejs") %>
+    </head>
+
+    <body>
+        <%- include("../fragmente/header.ejs") %>
+        <main>
+            <section id="galerie_statica">
+                <h2 class="efect-css-reflexie-text" data-text="Galerie">Galerie</h2>
+                <div id="grid-galerie">
+                    
+                    
+                    <% if (imagini && imagini.length > 0) { %>
+                        <% for (let imag of imagini) { %>
+                            <figure>
+                                <picture>
+                                    <source srcset="<%- imag.fisier_mediu %>" media="screen and (max-width:1000px)" />
+                                    <img alt="Galerie" title="<%= imag.descriere %>" src="<%- imag.fisier %>" />
+                                </picture>
+                                <figcaption><%= imag.descriere %></figcaption>
+                            </figure>
+                        <% } %>
+                    <% } else { %>
+                        <p>No images available for the current season.</p>
+                    <% } %>
+
+
+
+                    
+                </div>
+            </section>
+        </main>
+        <hr class="efect-css-stilizare-hr" />
+        <%- include("../fragmente/footer.ejs")%>
+    </body>
+</html>

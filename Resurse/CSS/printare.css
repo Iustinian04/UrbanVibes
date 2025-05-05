@@ -4,12 +4,12 @@
     }
     
     #absolut {
-        display: none; /* Hidden by default */
+        display: none; 
     }
     #watermark {
-        display: none; /* Hide by default */
+        display: none; 
     }
-    /* Only show on first page */
+    /* este doar pe prima pagina */
     #absolut:first-of-type {
         display: block;
         width: 80%;
@@ -17,7 +17,7 @@
         border: 2px dotted black;
         padding: 10px;
         text-align: center;
-        position: absolute; /* Changed from fixed */
+        position: absolute; 
         top: 40px;
         left: 10%;
         box-sizing: border-box;
@@ -32,7 +32,7 @@
         content: "Acesta este un proiect școlar  ";
     }
     
-    /* Add spacing to prevent content overlap */
+
     .site-header {
         margin-top: 80px  ;
     }
@@ -40,19 +40,19 @@
         display: none  ;
     }
     #catalog-section {
-        display: none  ; /* Hide catalog section */
+        display: none  ;
     }
     .link-top{
-        display: none  ; /* Hide the link to the top of the page */
+        display: none  ;
     }
     #sectiune-principala{
-        display: none  ; /* Hide product images */
+        display: none  ; 
     }
     #find-us-section{
-        display: none  ; /* Hide find us section */
+        display: none  ; 
     }
     .container-iframe{
-        display: none  ; /* Hide iframe container */
+        display: none  ; 
     }
     .container{
         font-size: 10px;
@@ -62,28 +62,28 @@
         display: block;
     }
     #user-actions{
-        display: none  ; /* Hide user actions */
+        display: none  ; 
     }
-    /* Hide elements dependent on media (e.g., captions or descriptions) */
+    /* Ascunde elementele media...*/
     body figcaption, body .image-description, body .media-caption {
         display: none  ;
     }
     img {
         display: none; 
     }
-    /* Hide the link to the top of the page */
+    /* Ascunde linkul */
     body a[href="#top"] {
         display: none  ;
     }
     a {
-        color: inherit !important; /* Use the same color as surrounding text */
-        text-decoration: none !important; /* Remove underlining */
+        color: inherit ;
+        text-decoration: none ; 
     }
 
     #titlu {
-        display: block; /* Always show the title */
+        display: block; /* titlul este aratat mereu */
         text-align: center;
-        font-size: 2.5em; /* 2.5 times the HTML font size */
+        font-size: 2.5em;
         text-decoration: underline;
         margin: 0;
         position: absolute;
@@ -93,19 +93,19 @@
         page-break-after: always;
     }
     nav, .menu, #menu {
-        display: none !important; /* Hide the menu */
+        display: none 
     }
     .header-container > *:not(.logo-container) {
-        display: none !important; /* Hide everything except the logo container */
+        display: none 
     }
     .promo-banner {
-        display: none !important; /* Hide the promo banner */
+        display: none 
     }
     .tagline {
-        display: none !important; /* Hide the tagline */
+        display: none 
     }
     footer {
-        page-break-before: always; /* Add a page break before the footer */
+        page-break-before: always; /*footer-ul este pe o pagina noua/separata*/
     }
 
     #watermark {

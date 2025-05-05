@@ -10,10 +10,11 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    
 }
 
 .nav-link {
-    display: block;
+    
     position: relative;
     padding: 15px 20px;
     color: #ffffff;
@@ -34,7 +35,7 @@
     height: 0;
     background-color: rgba(246, 245, 244, 0.3); 
     transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease;
+    transition: width 1s ease, height 1s ease;
     z-index: -1;
     border-radius: 0;
 }
@@ -62,6 +63,20 @@
 /* Stiluri pentru dropdown */
 .nav-item {
     position: relative;
+    transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+
+.nav-item::after{
+    content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+  transform-origin: center;
+  transition: width 0.3s ease-out, height 0.3s ease-out;
 }
 
 .dropdown-menu {
@@ -72,32 +87,55 @@
     background-color: #D4816B;
     min-width: 200px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    display: none;
     list-style: none;
     padding: 0;
     margin: 0;
-    transform: scale(0);
-    transform-origin: top left;
-    transition: transform 0.3s ease-in-out;
+    
     opacity: 0;
+    visibility: hidden;
+    transform: scale(0); /* Only scale vertically */
+    transform-origin: top left;
+    transition: transform 1s ease, opacity 1s ease, visibility 1s ease;
 }
 
 .nav-item:hover .dropdown-menu {
-    display: block;
-    transform: scale(1);
+    transform: scale(1); /* Expand vertically */
     opacity: 1;
+    visibility: visible;
+    
 }
 
+
 .dropdown-link {
-    display: block;
+    position: relative;
     padding: 10px 15px;
     color: #ffffff;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 1s ease;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.dropdown-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    background-color: var(--color-accent);
+    transform-origin: top left;
+    transform: skewX(-15deg);
+    transition: width 2s ease, height 2s ease;
+    z-index: -1;
+}
+
+.dropdown-link:hover::before {
+    width: 120%; /* Extra width to cover the skewed area */
+    height: 100%;
 }
 
 .dropdown-link:hover {
-    background-color:var(--color-accent);
     color: #ffffff;
     text-shadow: 0 0 5px #ffffff, 
                  0 0 10px rgba(255, 255, 255, 0.5);
@@ -113,4 +151,3 @@
     font-size: var(--font-size-small);
     width: 100%;
 }
-

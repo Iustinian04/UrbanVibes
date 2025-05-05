@@ -2,6 +2,7 @@ const express= require("express");
 const path= require("path");
 const fs = require("fs");
 const sharp = require("sharp");
+const sass = require("sass");
 
 app= express();
 
@@ -18,7 +19,10 @@ app.set("view engine", "ejs");
 
 obGlobal={
     obErori:null,
-    obImagini:null
+    obImagini:null,
+    folderScss:path.join(__dirname,"Resurse/scss"),
+    folderCss:path.join(__dirname,"Resurse/CSS"),
+    folderBackup:path.join(__dirname,"Resurse/backup"),
 }
 
 
@@ -29,6 +33,57 @@ for (let folder of vect_foldere ){
         fs.mkdirSync(caleFolder);
     }
 }
+
+function compileazaScss(caleScss, caleCss){
+    console.log("cale:",caleCss);
+    if(!caleCss){
+
+        let numeFisExt=path.basename(caleScss);
+        let numeFis=numeFisExt.split(".")[0]   /// "a.scss"  -> ["a","scss"]
+        caleCss=numeFis+".css";
+    }
+    
+    if (!path.isAbsolute(caleScss))
+        caleScss=path.join(obGlobal.folderScss,caleScss )
+    if (!path.isAbsolute(caleCss))
+        caleCss=path.join(obGlobal.folderCss,caleCss )
+    
+
+    let caleBackup=path.join(obGlobal.folderBackup, "Resurse/CSS");
+    if (!fs.existsSync(caleBackup)) {
+        fs.mkdirSync(caleBackup,{recursive:true})
+    }
+    
+    // la acest punct avem cai absolute in caleScss si  caleCss
+
+    let numeFisCss=path.basename(caleCss);
+    if (fs.existsSync(caleCss)){
+        fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "Resurse/CSS",numeFisCss ))// +(new Date()).getTime()
+    }
+    rez=sass.compile(caleScss, {"sourceMap":true});
+    fs.writeFileSync(caleCss,rez.css)
+    //console.log("Compilare SCSS",rez);
+}
+//compileazaScss("a.scss");
+vFisiere=fs.readdirSync(obGlobal.folderScss);
+for( let numeFis of vFisiere ){
+    if (path.extname(numeFis)==".scss"){
+        compileazaScss(numeFis);
+    }
+}
+
+
+fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
+    console.log(eveniment, numeFis);
+    if (eveniment=="change" || eveniment=="rename"){
+        let caleCompleta=path.join(obGlobal.folderScss, numeFis);
+        if (fs.existsSync(caleCompleta)){
+            compileazaScss(caleCompleta);
+        }
+    }
+})
+
+
 
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"Resurse/json/erori.json")).toString("utf-8");
@@ -46,28 +101,45 @@ function initErori(){
 
 initErori()
 
-function initImagini(){
-    var continut= fs.readFileSync(path.join(__dirname,"Resurse/json/galerie.json")).toString("utf-8");
+function initImagini() {
+    const fs = require("fs");
+    const path = require("path");
+    const sharp = require("sharp");
 
-    obGlobal.obImagini=JSON.parse(continut);
-    let vImagini=obGlobal.obImagini.imagini;
+    const galeriePath = path.join(__dirname, "Resurse/json/galerie.json");
+    const galerieContent = fs.readFileSync(galeriePath, "utf-8");
+    obGlobal.obImagini = JSON.parse(galerieContent);
 
-    let caleAbs=path.join(__dirname,obGlobal.obImagini.cale_galerie);
-    let caleAbsMediu=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mediu");
-    if (!fs.existsSync(caleAbsMediu))
-        fs.mkdirSync(caleAbsMediu);
+    const caleGalerie = path.join(__dirname, obGlobal.obImagini.cale_galerie);
+    const caleMediu = path.join(caleGalerie, "mediu");
+    const caleMic = path.join(caleGalerie, "mic");
 
-    //for (let i=0; i< vErori.length; i++ )
-    for (let imag of vImagini){
-        [numeFis, ext]=imag.fisier.split(".");
-        let caleFisAbs=path.join(caleAbs,imag.fisier);
-        let caleFisMediuAbs=path.join(caleAbsMediu, numeFis+".webp");
-        sharp(caleFisAbs).resize(300).toFile(caleFisMediuAbs);
-        imag.fisier_mediu=path.join("/", obGlobal.obImagini.cale_galerie, "mediu",numeFis+".webp" )
-        imag.fisier=path.join("/", obGlobal.obImagini.cale_galerie, imag.fisier )
-        
-    }
-    console.log(obGlobal.obImagini)
+    if (!fs.existsSync(caleMediu)) fs.mkdirSync(caleMediu);
+    if (!fs.existsSync(caleMic)) fs.mkdirSync(caleMic);
+
+    obGlobal.obImagini.imagini.forEach(imag => {
+        if (imag.fisier) {
+            const [numeFis, ext] = imag.fisier.split(".");
+            const caleFisAbs = path.join(caleGalerie, imag.fisier);
+
+            // Generate medium-sized image
+            const caleFisMediu = path.join(caleMediu, `${numeFis}.webp`);
+            if (!fs.existsSync(caleFisMediu)) {
+                sharp(caleFisAbs).resize(800).toFile(caleFisMediu);
+            }
+
+            // Generate small-sized image
+            const caleFisMic = path.join(caleMic, `${numeFis}.webp`);
+            if (!fs.existsSync(caleFisMic)) {
+                sharp(caleFisAbs).resize(400).toFile(caleFisMic);
+            }
+
+            // Add paths to the image object
+            imag.fisier_mediu = `/Resurse/Imagini/galerie/mediu/${numeFis}.webp`;
+            imag.fisier_mic = `/Resurse/Imagini/galerie/mic/${numeFis}.webp`;
+            imag.fisier = `/Resurse/Imagini/galerie/${imag.fisier}`;
+        }
+    });
 }
 initImagini();
 function afisareEroare(res, identificator, titlu, text, imagine){
@@ -101,10 +173,11 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 
 
 
-app.use("/Resurse", express.static(path.join(__dirname,"Resurse")))
+app.use("/Resurse", express.static(path.join(__dirname, "Resurse")));
+app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
 
 app.get("/favicon.ico", function(req, res){
-    res.sendFile(path.join(__dirname, "Resurse/imagini/favicon/favicon.ico"))
+    res.sendFile(path.join(__dirname, "Resurse/Imagini/favicon_io/favicon.ico"))
 })
 
 app.get(["/","/index","/home"], function(req, res){
@@ -114,6 +187,23 @@ app.get(["/","/index","/home"], function(req, res){
 app.get("/despre", function(req, res){
     res.render("pagini/despre");
 })
+
+app.get("/pagina_galerie", function (req, res) {
+    const d = new Date();
+    const luna = d.getMonth(); // 0 = January, ..., 11 = December
+
+    let sezon_curent = "";
+    if ([11, 0, 1].includes(luna)) sezon_curent = "iarna";
+    else if ([2, 3, 4].includes(luna)) sezon_curent = "primavara";
+    else if ([5, 6, 7].includes(luna)) sezon_curent = "vara";
+    else if ([8, 9, 10].includes(luna)) sezon_curent = "toamna";
+
+    const imagini_filtrate = obGlobal.obImagini.imagini.filter(imag =>
+        imag.anotimp && imag.anotimp.includes(sezon_curent)
+    );
+
+    res.render("pagini/pagina_galerie", { imagini: imagini_filtrate });
+});
 
 app.get("/index/a", function(req, res){
     res.render("pagini/index");

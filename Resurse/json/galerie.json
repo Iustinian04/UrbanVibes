@@ -1,41 +1,113 @@
 {
-	"cale_galerie":"resurse/imagini/galerie",
+	"cale_galerie":"Resurse/Imagini/galerie",
 	"imagini": [
 		{
-			"fisier":"briose-frisca.png",
-			"descriere":"Brioșe",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"fisier":"poza1.jpg",
+			"titlu":"Poza 1",
+			"descriere":"Modern style",
+			"anotimp":["toamna"]
 		},
 		{
-			"fisier":"clatite.png",
-			"descriere":"Clătite cu dulceață",
-			"luni":["ianuarie","februarie","iunie"]
-			
+			"fisier":"poza2.jpg",
+			"titlu":"Poza 2",
+			"descriere":"Teens vibe",
+			"anotimp":["primavara"]
 		},
 		{
-			"fisier":"gogosi.png",
-			"descriere":"Gogoși glazurate",
-			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
+			"fisier":"poza3.jpg",
+			"titlu":"Poza 3",
+			"descriere":"Trendy style",
+			"anotimp":["primavara","toamna"]
 		},
 		{
-			"fisier":"tort-scortisoara.png",
-			"descriere":"Tort cu scorțisoară",
-			
-			"luni":["noiembrie","aprilie", "decembrie"]
+			"fisier":"poza4.jpg",
+			"titlu":"Poza 4",
+			"descriere":"Hat lore",
+			"anotimp":["vara"]
 		},
 		{
-			"fisier":"prajitura-ciocolata.png",
-			"descriere":"Prăjitură cu ciocolată",
-			
-			"luni":["noiembrie","aprilie", "decembrie"]
+			"fisier":"poza5.jpg",
+			"titlu":"Poza 5",
+			"descriere":"Shy outfit",
+			"anotimp":["toamna"]
 		},
 		{
-			"fisier":"tarta-afine.png",
-			"descriere":"Tartă cu afine"
+			"fisier":"poza6.jpg",
+			"titlu":"Poza 6",
+			"descriere":"Daring attitude",
+			"anotimp":["primavara"]
 		},
 		{
-			"fisier":"tort-trandafiri.png",
-			"descriere":"Tort special"
+			"fisier":"poza7.jpg",
+			"titlu":"Poza 7",
+			"descriere":"Summer vibes",
+			"anotimp":["vara"]
+		},
+		{
+			"fisier":"poza8.jpg",
+			"titlu":"Poza 8",
+			"descriere":"Who's the boss?",
+			"anotimp":["primavara"]
+		},
+		{
+			"fisier":"poza9.jpg",
+			"titlu":"Poza 9",
+			"descriere":"Me and myself",
+			"anotimp":["toamna","iarna"]
+		},
+		{
+			"fisier":"poza10.jpg",
+			"titlu":"Poza 10",
+			"descriere":"Matching glasses",
+			"anotimp":["primavara"]
+		},
+		{
+			"fisier":"poza11.jpg",
+			"titlu":"Poza 11",
+			"descriere":"Perfect trio",
+			"anotimp":["toamna"]
+		},
+		{
+			"fisier":"poza12.jpg",
+			"titlu":"Poza 12",
+			"descriere":"Casual-ish",
+			"anotimp":["primavara"]
+		},
+		{
+			"fisier":"poza13.jpg",
+			"titlu":"Poza 13",
+			"descriere":"Matching colors",
+			"anotimp":["iarna"]
+		},
+		{
+			"fisier":"poza14.jpg",
+			"titlu":"Poza 14",
+			"descriere":"The winter's coming",
+			"anotimp":["iarna"]
+		},
+		{
+			"fisier":"poza15.jpg",
+			"titlu":"Poza 15",
+			"descriere":"First impression",
+			"anotimp":["iarna"]
+		},
+		{
+			"fisier":"poza16.jpg",
+			"titlu":"Poza 16",
+			"descriere":"Perfect couple",
+			"anotimp":["iarna"]
+		},
+		{
+			"fisier":"poza17.jpg",
+			"titlu":"Poza 17",
+			"descriere":"Confidence's the key",
+			"anotimp":["iarna","toamna"]
+		},
+		{
+			"fisier":"poza18.jpg",
+			"titlu":"Poza 18",
+			"descriere":"Carefree style",
+			"anotimp":["iarna"]
 		}
 	]
 }

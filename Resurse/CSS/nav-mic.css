@@ -1,210 +1,161 @@
+@charset "UTF-8";
 /* Mobile Menu Toggle Styles - SE APLICĂ DOAR PE MOBILE */
 @media (max-width: 768px) {
-    .mobile-menu-checkbox {
-        display: none;
-    }
-
-    .mobile-menu-button {
-        display: block;
-        cursor: pointer;
-        padding: 15px;
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        z-index: 1001;
-    }
-
-    .hamburger {
-        width: 30px;
-        height: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .hamburger span {
-        display: block;
-        height: 3px;
-        width: 100%;
-        background-color: #ffffff;
-        transition: all 1s ease;
-    }
-
-    @keyframes revealMenu {
-        0% { 
-            clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
-        }
-        100% { 
-            clip-path: polygon(0% 0%, 100% 0%, 110% 50%, 100% 100%, 0% 100%);
-        }
-    }
-
-    .main-nav {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-        max-height: 80vh;
-        background-color: #D4816B;
-        z-index: 1000;
-        padding-top: 60px;
-        overflow-y: auto;
-        overflow: hidden;
-        transform: translateX(-100%);
-        clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
-        box-shadow: none;
-        border-bottom: none;
-    }
-
-    .mobile-menu-checkbox:checked ~ .main-nav {
-        transform: translateX(0);
-        animation: revealMenu 1.5s ease forwards;
-    }
-
-    /* Transformare hamburger -> X */
-    .mobile-menu-checkbox:checked + .mobile-menu-button .hamburger span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    .mobile-menu-checkbox:checked + .mobile-menu-button .hamburger span:nth-child(2) {
-        opacity: 0;
-    }
-    .mobile-menu-checkbox:checked + .mobile-menu-button .hamburger span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-
-    /* Listă optimizată pentru mobile */
-    .nav-list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px 0;
-        margin: 0;
-    }
-
-    .nav-item {
-        width: 100%;
-        max-width: 250px;
-        margin-bottom: 0;
-        text-align: center;
-        position: relative;
-    }
-
-    .nav-link {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 15px 20px;
-        width: 100%;
-        position: relative;
-    }
-
-    .dropdown-menu {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease-out;
-        background-color: #D4816B;
-        width: 95%; 
-        margin: 0 auto 5px; 
-        padding: 0;
-        list-style: none;
-        border-radius: 0 0 8px 8px;
-        position: relative;
-        left: auto;
-        right: auto;
-        top: auto;
-        box-shadow: none;
-        border: none;
-    }
-
-    .nav-item:focus-within .dropdown-menu,
-    .nav-item:hover .dropdown-menu {
-        max-height: 400px;
-        /* Asigură că dropdown-ul "împinge" elementele sub el */
-        display: block;
-    }
-
-    html, body {
-        overflow-x: hidden;
-        width: 100%;
-    }
-
-    .dropdown-link {
-        padding: 12px 20px;
-        display: block;
-        text-align: center;
-        transition: background-color 0.2s;
-    }
-
-    .dropdown-link:hover {
-        background-color:var(--color-accent);
-    }
-
-    /* Săgeată indicator */
-    .main-nav::after {
-        content: '';
-        position: fixed;
-        right: -15px;
-        top: 0;
-        height: 100%;
-        width: 15px;
-        background-color: #D4816B;
-        clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
-        opacity: 0;
-        transition: opacity 1s ease;
-    }
-
-    .mobile-menu-checkbox:checked ~ .main-nav::after {
-        opacity: 1;
-    }
-
-    /* Corecții finale */
-    .nav-item:last-child {
-        margin-bottom: 15px;
-    }
-    
-    /* Asigură că nu există overflow neintenționat */
-    html, body {
-        overflow-x: hidden;
-    }
-
-    /*Bonus 1 etapa 3 */
-.hamburger {
-    position: relative;
-    width: 40px; /* Width of the container */
-    height: 30px; /* Height of the container */
+  .mobile-menu-checkbox {
+    display: none;
+  }
+  .mobile-menu-button {
+    display: block;
     cursor: pointer;
-}
-
-.hamburger span {
+    padding: 15px;
     position: absolute;
-    background-color: black; /* Color of the rectangles */
-    width: 100%; /* Full width of the container */
-    height: 5px; /* Height of each rectangle */
-    border-radius: 5px; /* Optional: rounded corners */
-    transition: all 0.3s ease; /* Smooth transition for animations */
+    top: 10px;
+    left: 10px;
+    z-index: 1001;
+  }
+  .hamburger {
+    position: relative;
+    width: 40px;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger span {
+    position: absolute;
+    background-color: black;
+    width: 100%;
+    height: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
     opacity: 1;
-}
-
-/* Position the spans */
-.hamburger span:nth-child(1) {
-    top: 0; /* First rectangle at the top */
-}
-
-.hamburger span:nth-child(2) {
-    top: 12px; /* Second rectangle in the middle */
-}
-
-.hamburger span:nth-child(3) {
-    top: 24px; /* Third rectangle at the bottom */
-}
-    /* Bonus 2 etapa 3 */
-    .hamburger:hover span {
-        background-color: grey; /* Change color on hover */
-        opacity: 0.7; /* Reduce opacity on hover */
-        transform: rotate(90deg); /* Rotate bars to vertical */
+  }
+  .hamburger span:nth-child(1) {
+    top: 0;
+  }
+  .hamburger span:nth-child(2) {
+    top: 12px;
+  }
+  .hamburger span:nth-child(3) {
+    top: 24px;
+  }
+  .hamburger:hover span {
+    background-color: grey;
+    opacity: 0.7;
+    transform: rotate(90deg);
+  }
+  @keyframes revealMenu {
+    0% {
+      clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
     }
-
+    100% {
+      clip-path: polygon(0% 0%, 100% 0%, 110% 50%, 100% 100%, 0% 100%);
+    }
+  }
+  .main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    background-color: #d4816b;
+    z-index: 1000;
+    padding-top: 60px;
+    overflow-y: auto;
+    overflow: hidden;
+    transform: translateX(-100%);
+    clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
+    box-shadow: none;
+    border-bottom: none;
+  }
+  .main-nav::after {
+    content: "";
+    position: fixed;
+    right: -15px;
+    top: 0;
+    height: 100%;
+    width: 15px;
+    background-color: #d4816b;
+    clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  .mobile-menu-checkbox:checked ~ .main-nav {
+    transform: translateX(0);
+    animation: revealMenu 1.5s ease forwards;
+  }
+  .mobile-menu-checkbox:checked ~ .main-nav::after {
+    opacity: 1;
+  }
+  .mobile-menu-checkbox:checked + .mobile-menu-button .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .mobile-menu-checkbox:checked + .mobile-menu-button .hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-menu-checkbox:checked + .mobile-menu-button .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    margin: 0;
+  }
+  .nav-item {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 0;
+    text-align: center;
+    position: relative;
+  }
+  .nav-item:last-child {
+    margin-bottom: 15px;
+  }
+  .nav-item:focus-within .dropdown-menu, .nav-item:hover .dropdown-menu {
+    max-height: 400px;
+    display: block;
+  }
+  .nav-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 20px;
+    width: 100%;
+    position: relative;
+  }
+  .dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    background-color: #d4816b;
+    width: 95%;
+    margin: 0 auto 5px;
+    padding: 0;
+    list-style: none;
+    border-radius: 0 0 8px 8px;
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    box-shadow: none;
+    border: none;
+  }
+  .dropdown-link {
+    padding: 12px 20px;
+    display: block;
+    text-align: center;
+    transition: background-color 0.2s;
+  }
+  .dropdown-link:hover {
+    background-color: var(--color-accent);
+  }
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
 }
-
-

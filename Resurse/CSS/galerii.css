@@ -1,0 +1,186 @@
+#galerie_statica #grid-galerie {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2em;
+    counter-reset: img-counter 0;
+    position: relative;
+}
+
+/* Pseudo-elements to reserve space at (2,2) and (4,2) */
+#galerie_statica #grid-galerie::before,
+#galerie_statica #grid-galerie::after {
+    content: "";
+    visibility: hidden;
+}
+
+#galerie_statica #grid-galerie::before {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#galerie_statica #grid-galerie::after {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+/* Medium screens - two columns */
+@media screen and (max-width: 1000px) {
+    #galerie_statica #grid-galerie {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+    
+    /* Reset the pseudo-elements for medium screens */
+    #galerie_statica #grid-galerie::before,
+    #galerie_statica #grid-galerie::after {
+        display: none;
+    }
+}
+
+/* Small screens - one column */
+@media screen and (max-width: 600px) {
+    #galerie_statica #grid-galerie {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Standard image styles */
+#galerie_statica figure {
+    margin: 0;
+    align-items: center;
+}
+
+#galerie_statica figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0; /* Initial state without rounded corners */
+    transform-origin: top center; /* Set transform origin to center of top edge */
+    transition: transform 0.125s ease, opacity 0.125s ease, border-radius 0.125s ease; /* 1/8 second transition */
+}
+
+#galerie_statica figure:hover img {
+    transform: scale(1.4); /* Scale up by 40% */
+    opacity: 0.5; /* Semi-transparent */
+    border-radius: 15px; /* Rounded corners */
+}
+
+#galerie_statica figcaption {
+    margin-top: 0.5em;
+    text-align: center;
+    justify-content: center;
+}
+
+#galerie_statica figcaption::before {
+    content: counter(img-counter, lower-roman) ": ";
+    counter-increment: img-counter 1;
+}
+
+
+.efect-css-stilizare-hr {
+    height: 14px;
+    border: none;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      #2D3142 0%,
+      #2D3142 20%,
+      transparent 25%,
+      #2D3142 35%,
+      #2D3142 55%,
+      transparent 60%,
+      #2D3142 70%,
+      #2D3142 90%,
+      transparent 100%
+    );
+    opacity: 0.9;
+  }
+
+  .efect-css-reflexie-text {
+    grid-column: 1 / -1; /* Optional: span full width of the grid */
+    width: 80%;          /* But limit the actual visual width */
+    justify-self: center;
+    position: relative;
+    display: inline-block;
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    z-index: 10;
+    text-align: center;
+    /* Center the text in its container */
+    margin: 0 auto;
+    display: block;
+    padding: 20px 0; /* Add padding to create space around the text */
+}
+
+/* Container to center the text */
+.text-container {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    /* Ensure that images and other content don't overlap */
+    margin: 30px 0;
+    overflow: hidden;
+}
+
+/* Reflection */
+.efect-css-reflexie-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 102%;
+    /* Transform to create the angled reflection effect */
+    transform: scaleY(-1) skewX(-30deg); /* Add skew for the right angle effect */
+    transform-origin: top center;
+    color: black;
+    opacity: 0.6;
+    z-index: 1;
+    pointer-events: none;
+
+    /* Create a high-contrast striped mask for the strobe effect */
+    mask-image: repeating-linear-gradient(
+        to bottom,
+        black 0 2px,
+        transparent 2px 4px
+    );
+    -webkit-mask-image: repeating-linear-gradient(
+        to bottom,
+        black 0 2px,
+        transparent 2px 4px
+    );
+
+    mask-size: 100% 200%;
+    -webkit-mask-size: 100% 200%;
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+/* Animate just the mask on hover - creates shaky effect */
+.efect-css-reflexie-text:hover::after {
+    animation: shaky-strokes 0.15s infinite steps(2);
+}
+
+@keyframes shaky-strokes {
+    0% {
+        mask-position: 0 0;
+        -webkit-mask-position: 0 0;
+    }
+    25% {
+        mask-position: 2px 10%;
+        -webkit-mask-position: 2px 10%;
+    }
+    50% {
+        mask-position: -2px 50%;
+        -webkit-mask-position: -2px 50%;
+    }
+    75% {
+        mask-position: 1px 75%;
+        -webkit-mask-position: 1px 75%;
+    }
+    100% {
+        mask-position: -1px 100%;
+        -webkit-mask-position: -1px 100%;
+    }
+}
