@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="description" content="Cofetaria Dulcelind ofera prajituri, torturi, produse de patiserie cu optiunea de achizitie online si livrare prin curier.">
+        <meta name="keywords" content="cofetarie, Dulcelind, prajituri, torturi, dulce, pateuri, produse">
+        
+        <title>UrbanVibe - home</title>
+        <%- include("../fragmente/head") %>     
+        <link href="/Resurse/CSS/produs.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body>
+    
+        <%- include("../fragmente/header") %>
+    <main>
+        <section>
+            <h2>Pagină produs</h2>
+                <article id="art-produs">
+                <h3><span class="art-nume"><%- locals.prod.nume %></span></h3>
+                <p>Pret: <span class="art-pret"><%- locals.prod.pret %> RON</span></p>
+                <p>Descriere: <span class="art-descriere"><%- locals.prod.descriere %></span></p>
+                <p>Categorie: <span class="art-categorie"><%- locals.prod.categorie %></span></p>
+                <p>Tip produs: <span class="art-tip"><%- locals.prod.tip %></span></p>
+                <p>Etichete: <span class="art-etichete"><%- locals.prod.etichete ? locals.prod.etichete.join(", ") : "N/A" %></span></p>
+                <p>Stoc disponibil: <span class="art-stoc"><%- locals.prod.stoc %> buc.</span></p>
+                <p>Data adăugare: <span class="art-data-adaugare"><%- locals.prod.data_adaugare %></span></p>
+                <figure class="imag-produs">
+                    <img src="/Resurse/Imagini/produse/<%- locals.prod.imagine_url %>" alt="[imagine <%- locals.prod.nume %>]" />
+                </figure>
+                </article>
+            
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

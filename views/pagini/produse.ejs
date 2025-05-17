@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html  lang="ro">
+    <head>
+        <meta name="keywords" content="streetwear, modă urbană, haine casual, outfit cool, limited edition, haine premium, stil urban, hip-hop fashion"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+        <meta name="description" content="Curs de Tehnici Web. Limbajul HTML. Taguri."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+  
+        <link rel="stylesheet" href="/Resurse/CSS/produse.css" type="text/css" />
+        <title>UrbanVibe - home</title>
+        <%- include("../fragmente/head") %>     
+        <script type="text/javascript" src=/resurse/js/produse.js></script>
+        <script type="text/javascript" src=/resurse/js/produse-cos.js></script>
+
+    </head>
+    <body>
+    <header class="c1" id="titlu" >
+        
+        <%- include("../fragmente/header") %>
+    </header>
+
+    <main>
+        <label> Nume: <input type="text" id="inp-nume"></label>
+        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
+        <div> Stoc:
+            <p><label>Mic (stoc &lt; 10)
+                <input id="i_stoc1" name="gr_stoc" value="0:10" type="radio"/>
+            </label></p>
+            <p><label>Mediu (10 &le; stoc &lt; 50)
+                <input id="i_stoc2" name="gr_stoc" value="10:50" type="radio"/>
+            </label></p>
+            <p><label>Mare (stoc &ge; 50)
+                <input id="i_stoc3" name="gr_stoc" value="50:1000000000" type="radio"/>
+            </label></p>
+            <p><label>Toate
+                <input id="i_stoc4" checked name="gr_stoc" value="toate" type="radio"/>
+            </label></p>
+        </div>
+
+
+        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="129.99"> <span id="infoRange">(0)</span></label>
+        <label>Select simplu:
+            <select id="inp-categorie">
+                <option id="sel-toate" selected value="toate">toate</option>
+                <% for (let opt of locals.optiuni) { %>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                <% } %>
+            </select>
+        </label>
+
+        <p>
+        <button id="filtrare">Filtreaza</button> 
+
+        <button id="resetare">Reseteaza</button><br/>
+        <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
+        <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
+        
+        </p>
+      
+        <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+  
+        <section id="produse">
+
+            <h2>Produse</h2>
+            <div class="grid-produse">
+                <% for( let prod of locals.produse) { %>
+                    <article class="produs" >
+                        <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" ><span class="val-nume"><%- prod.nume%></span></a></h3>
+                        <p class="categorie">Categorie:<span class="val-categorie"><%- prod.categorie%></span></p>
+                        <p class="descriere">Descriere:<span class="val-descriere"><%- prod.descriere%></span></p>
+                        <table>
+                        <tr>
+                            <td>Pret</td>
+                            <td><span class="val-pret"><%- prod.pret %></span></td>
+                        </tr>
+                        <tr>
+                            <td>Marime</td>
+                            <td><span class="val-marime"><%- prod.marime %></span></td>
+                        </tr>
+                        <tr>
+                            <td>Etichete</td>
+                            <td>
+                                <% if(prod.etichete && prod.etichete.length) { %>
+                                    <span class="val-etichete"><%- prod.etichete.join(", ") %></span>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Data adăugare</td>
+                            <td>
+                                <time datetime="<%- prod.data_adaugare.toISOString ? prod.data_adaugare.toISOString() : prod.data_adaugare %>">
+                                    <% 
+                                    const luni = ["Ianuarie","Februarie","Martie","Aprilie","Mai","Iunie","Iulie","August","Septembrie","Octombrie","Noiembrie","Decembrie"];
+                                    const zile = ["Duminică","Luni","Marți","Miercuri","Joi","Vineri","Sâmbătă"];
+                                    let d = new Date(prod.data_adaugare);
+                                    %>
+                                    <%= d.getDate() %>/<%= luni[d.getMonth()] %>/<%= d.getFullYear() %> (<%= zile[d.getDay()] %>)
+                                </time>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Promovat</td>
+                            <td><span class="val-este_promovat"><%- prod.este_promovat ? "Da" : "Nu" %></span></td>
+                        </tr>
+
+                        <tr>
+    <td>Stoc</td>
+    <td><span class="val-stoc"><%- prod.stoc %></span></td>
+</tr>
+                        </table>
+                        
+                        <figure>
+                            <a href="/produs/<%-prod.id %>" ><img src="/resurse/imagini/produse/<%- prod.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- prod.nume %>]" /></a>
+                        </figure>
+                        <label class="selecteaza-cos">
+                            Selectează:<br/>
+                            <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                        </label>
+                    </article>
+                <% }%>
+            </div>
+            
+        </section>
+    </main>
+
+    <%- include("../fragmente/footer") %>
+    </body>
+</html>

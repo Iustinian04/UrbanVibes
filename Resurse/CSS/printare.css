@@ -110,7 +110,7 @@
 
     #watermark {
         display: block;
-        position: fixed;
+        position: fixed; /*este responsabil pentru afisarea pe fiecare pagina*/
         top: 0cm;
         right: 1cm; 
         width: 150px;

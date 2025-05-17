@@ -3,6 +3,27 @@ const path= require("path");
 const fs = require("fs");
 const sharp = require("sharp");
 const sass = require("sass");
+const pg = require ("pg");
+
+const Client=pg.Client;
+
+client=new Client({
+    database:"proiecttw",
+    user:"trifan_iustinian_luca",
+    password:"Trifan_Iustinian_Luca", 
+    host:"localhost",
+    port:5432
+})
+
+client.connect()
+client.query("select * from produse", function(err, rezultat ){
+    console.log(err)    
+    console.log(rezultat)
+})
+client.query("select * from unnest(enum_range(null::categorie_produs))", function(err, rezultat ){
+    console.log(err)    
+    console.log(rezultat)
+})
 
 app= express();
 
@@ -23,7 +44,14 @@ obGlobal={
     folderScss:path.join(__dirname,"Resurse/scss"),
     folderCss:path.join(__dirname,"Resurse/CSS"),
     folderBackup:path.join(__dirname,"Resurse/backup"),
+    optiuniMeniu:null,
 }
+
+client.query("select * from unnest(enum_range(null::categorie_produs))", function(err, rezultat ){
+    console.log(err)    
+    console.log(rezultat)
+    obGlobal.optiuniMeniu=rezultat.rows;
+})
 
 
 vect_foldere=["temp", "backup", "temp1"]
@@ -117,24 +145,26 @@ function initImagini() {
     if (!fs.existsSync(caleMediu)) fs.mkdirSync(caleMediu);
     if (!fs.existsSync(caleMic)) fs.mkdirSync(caleMic);
 
+
+    /* Vector de imagini     */
     obGlobal.obImagini.imagini.forEach(imag => {
         if (imag.fisier) {
             const [numeFis, ext] = imag.fisier.split(".");
             const caleFisAbs = path.join(caleGalerie, imag.fisier);
 
-            // Generate medium-sized image
+            // Imagini medii
             const caleFisMediu = path.join(caleMediu, `${numeFis}.webp`);
             if (!fs.existsSync(caleFisMediu)) {
                 sharp(caleFisAbs).resize(800).toFile(caleFisMediu);
             }
 
-            // Generate small-sized image
+            // Imagini mici
             const caleFisMic = path.join(caleMic, `${numeFis}.webp`);
             if (!fs.existsSync(caleFisMic)) {
                 sharp(caleFisAbs).resize(400).toFile(caleFisMic);
             }
 
-            // Add paths to the image object
+            
             imag.fisier_mediu = `/Resurse/Imagini/galerie/mediu/${numeFis}.webp`;
             imag.fisier_mic = `/Resurse/Imagini/galerie/mic/${numeFis}.webp`;
             imag.fisier = `/Resurse/Imagini/galerie/${imag.fisier}`;
@@ -172,6 +202,10 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 }
 
 
+app.use("/*", function(req, res,next){
+    res.locals.optiuniMeniu=obGlobal.optiuniMeniu;
+    next();
+})
 
 app.use("/Resurse", express.static(path.join(__dirname, "Resurse")));
 app.use("/node_modules", express.static(path.join(__dirname, "node_modules")));
@@ -190,7 +224,7 @@ app.get("/despre", function(req, res){
 
 app.get("/pagina_galerie", function (req, res) {
     const d = new Date();
-    const luna = d.getMonth(); // 0 = January, ..., 11 = December
+    const luna = d.getMonth(); // 0 = Ianuarie, ..., 11 = Decembrie
 
     let sezon_curent = "";
     if ([11, 0, 1].includes(luna)) sezon_curent = "iarna";
@@ -236,7 +270,55 @@ app.get("/abc", function(req, res, next){
     console.log("------------")
 })
 
+app.get("/produse", function (req, res) {
+    console.log(req.query);
+    var conditieQuery = ""; // TO DO where din parametri
 
+    if (req.query.categorie) {
+        conditieQuery=`where categorie='${req.query.categorie}'`;
+    }
+
+    queryOptiuni = "select * from unnest(enum_range(null::categorie_produs))";
+    client.query(queryOptiuni, function (err, rezOptiuni) {
+        if (err) {
+            console.log("Error in queryOptiuni:", err);
+            afisareEroare(res, 2);
+            return;
+        }
+
+        console.log("rezOptiuni:", rezOptiuni);
+
+        queryProduse = "select * from produse" + conditieQuery;
+        client.query(queryProduse, function (err, rez) {
+            if (err) {
+                console.log("Error in queryProduse:", err);
+                afisareEroare(res, 2);
+            } else {
+                res.render("pagini/produse", {
+                    produse: rez.rows,
+                    optiuni: rezOptiuni.rows || [] // Ensure optiuni is iterable
+                });
+            }
+        });
+    });
+});
+
+app.get("/produs/:id", function(req, res){
+    client.query(`select * from produse where id=${req.params.id}`, function(err, rez){
+        if (err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else{
+            if (rez.rowCount==0){
+                afisareEroare(res, 404);
+            }
+            else{
+                res.render("pagini/produs", {prod: rez.rows[0]})
+            }
+        }
+    })
+})
 
 app.get(/^\/Resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
     afisareEroare(res,403);

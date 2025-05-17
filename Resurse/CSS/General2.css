@@ -1078,3 +1078,11 @@ main #stilizare-linkuri-etapa4 a:hover {
   border:1px solid purple;
 }
 
+
+/*Etapa 4 linkuri*/
+a[href^="http"] {
+  content: "⮳";
+  position: relative;
+  color: var(--color-text);
+  
+}

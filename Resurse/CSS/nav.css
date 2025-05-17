@@ -93,13 +93,13 @@
     
     opacity: 0;
     visibility: hidden;
-    transform: scale(0); /* Only scale vertically */
+    transform: scale(0); 
     transform-origin: top left;
     transition: transform 1s ease, opacity 1s ease, visibility 1s ease;
 }
 
 .nav-item:hover .dropdown-menu {
-    transform: scale(1); /* Expand vertically */
+    transform: scale(1); 
     opacity: 1;
     visibility: visible;
     
@@ -151,3 +151,7 @@
     font-size: var(--font-size-small);
     width: 100%;
 }
+
+.mobile-menu-checkbox {
+    display: none;
+  }
