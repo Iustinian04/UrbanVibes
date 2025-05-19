@@ -1086,3 +1086,165 @@ a[href^="http"] {
   color: var(--color-text);
   
 }
+
+/* Etapa 6 tema */
+/* Tema generală */
+body.dark {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --input-bg: #2a2a2a;
+  --border-color: #3a3a3a;
+  --accent-color: #bb86fc;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+body.dark header,
+body.dark footer,
+body.dark main {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Carduri de produs */
+body.dark .produs {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+/* Tabel produs */
+body.dark .produs table td {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+/* Inputuri, selecturi, textarea */
+body.dark input,
+body.dark select,
+body.dark textarea,
+body.dark .form-control,
+body.dark .form-select,
+body.dark .form-range,
+body.dark .form-floating label {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+  color: #aaa;
+}
+
+/* Butoane */
+body.dark .btn {
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+body.dark .btn:hover {
+  background-color: var(--accent-color);
+  color: #000;
+}
+
+/* Iconiță schimbă temă */
+body.dark #icon-tema {
+  color: var(--accent-color);
+}
+
+/* Fundal header adaptat pentru dark mode */
+body.dark .site-header {
+    background-color: #1e1e1e;
+    border-bottom: 1px solid #333;
+}
+
+/* Meniu principal dark */
+body.dark .main-nav .nav-list > .nav-item > .nav-link {
+    color: #e0e0e0;
+}
+
+body.dark .main-nav .nav-list > .nav-item > .nav-link:hover {
+    background-color: #2a2a2a;
+    color: var(--accent-color);
+}
+
+/* Dropdown */
+body.dark .dropdown-menu {
+    background-color: #2a2a2a;
+    border-color: #444;
+}
+
+body.dark .dropdown-menu .dropdown-link {
+    color: #e0e0e0;
+}
+
+body.dark .dropdown-menu .dropdown-link:hover {
+    background-color: #3a3a3a;
+    color: var(--accent-color);
+}
+
+/* Corectare form-floating label în dark + textarea */
+body.dark .form-floating > label {
+    color: #aaa;
+    background-color: transparent;
+}
+
+/* Eticheta nu acoperă textul în textarea când tastezi */
+body.dark .form-floating > textarea:focus ~ label,
+body.dark .form-floating > textarea:not(:placeholder-shown) ~ label {
+    opacity: 0.65;
+    transform: scale(0.85) translateY(-1.2rem) translateX(0.15rem);
+    background-color: var(--input-bg);
+    padding: 0 0.2rem;
+}
+
+body.dark .produs-info table {
+  background-color: var(--card-bg, #1e1e1e);
+  color: var(--text-color, #e0e0e0);
+  width: 100%;
+}
+
+body.dark .produs-info td {
+  background-color: var(--cell-bg, #2a2a2a);
+  color: var(--text-color, #e0e0e0);
+  padding: 0.5rem 1rem;
+  border: 1px solid #333;
+}
+
+body.dark .produs-info tr:hover td {
+  background-color: #333;
+}
+
+body.dark .produs-info table td:first-child {
+  font-weight: bold;
+  color: var(--accent-color, #024302);
+}
+
+
+/* DARK MODE - header portocaliu spre ars */
+body.dark .site-header {
+  background-color: #1e1e1e;
+}
+
+body.dark .site-header .nav-link {
+  color: #e0e0e0;
+}
+
+body.dark .site-header .nav-link:hover {
+  background-color: #2a2a2a;
+  color: #bb86fc;
+}
+
+/* DARK MODE - bara verde din promo */
+body.dark .promo-banner {
+  background-color: #3f503f;
+  color: #ccc;
+}
+
+body.dark .promo-banner a {
+  color: #bb86fc;
+}

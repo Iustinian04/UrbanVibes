@@ -7,7 +7,7 @@
     position: relative;
 }
 
-/* Pseudo-elements to reserve space at (2,2) and (4,2) */
+/* Pseudo-elemente care sa puna spatiu la (2,2) and (4,2) */
 #galerie_statica #grid-galerie::before,
 #galerie_statica #grid-galerie::after {
     content: "";
@@ -24,28 +24,28 @@
     grid-row: 4;
 }
 
-/* Medium screens - two columns */
+/* Ecran mediu - 2 coloane */
 @media screen and (max-width: 1000px) {
     #galerie_statica #grid-galerie {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
     }
     
-    /* Reset the pseudo-elements for medium screens */
+    /* Resetearea pseudo-elementelor pentru ecrane medii */
     #galerie_statica #grid-galerie::before,
     #galerie_statica #grid-galerie::after {
         display: none;
     }
 }
 
-/* Small screens - one column */
+/* Ecran mic - o coloana */
 @media screen and (max-width: 600px) {
     #galerie_statica #grid-galerie {
         grid-template-columns: 1fr;
     }
 }
 
-/* Standard image styles */
+/* Stiluri pentru galerie */
 #galerie_statica figure {
     margin: 0;
     align-items: center;
@@ -97,6 +97,8 @@
     opacity: 0.9;
   }
 
+
+/* Reflexie text */
   .efect-css-reflexie-text {
     grid-column: 1 / -1; 
     width: 80%;          
@@ -125,7 +127,7 @@
 
 /* Reflectie */
 .efect-css-reflexie-text::after {
-    content: attr(data-text);
+    content: attr(data-text); /* Atributul data-text copiaza textul */
     position: absolute;
     top: 100%;
     left: 0;

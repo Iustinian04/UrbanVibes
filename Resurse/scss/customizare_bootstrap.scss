@@ -1,24 +1,55 @@
+// Variabile custom (dacă nu sunt deja definite într-un alt fișier)
+$btn-border-radius: 0.5rem;
+$btn-border-width: 2px;
+$btn-font-size: 0.875rem; // echivalent cu --font-size-small
+
+// Bootstrap customization
 @use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
-    $primary: #2D3142, 
-    $secondary: purple,
-    $body-bg: #F5EFE0, // --color-primary General2
-    $body-color: #2D3142,
-    $font-family-sans-serif:'Arial', //--font-family-sans-serif General2
-    $font-size-base: 1rem,
-    $h1-font-size:2.5rem,
-    $h2-font-size: 2rem,
-    $h3-font-size: 1.5rem,
-    $border-radius: 12px,
-    $dropdown-bg:#D4816B,
-
-
-    $nav-link-padding-x: 0.9375rem,
-    $nav-link-padding-y: 1.25rem,
-    
-    $btn-padding-y: 0.75rem, // Dimensiunea padding-ului pe axa Y pentru butoane
-    $btn-padding-x: 1.5rem // Dimensiunea padding-ului pe axa X pentru butoane
-    
+  $primary: #2D3142,
+  $secondary: #2D3142,
+  $body-bg: #F5EFE0,
+  $body-color: #2D3142,
+  $font-family-sans-serif: 'Arial',
+  $font-size-base: 1rem,
+  $input-border-color: #3e3f45,
+  
+  $border-radius: $btn-border-radius,
+  $btn-border-radius: $btn-border-radius,
+  $btn-border-width: $btn-border-width,
+  $btn-padding-y: 0.25rem,
+  $btn-padding-x: 0.75rem,
+  $btn-font-size: $btn-font-size
 );
+
+// Butoane de filtrare/sortare/resetare personalizate
+.btn-filt {
+  @extend .btn;
+  @extend .btn-sm;
+  font-size: $btn-font-size;
+  border-width: $btn-border-width;
+  border-radius: $btn-border-radius;
+
+  i {
+    font-size: 1rem;
+  }
+
+  span {
+    @extend .d-none;
+    @extend .d-md-inline;
+  }
+}
+
+.filtru-grid {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+#icon-tema {
+  font-size: 1.2rem;
+  border-color: var(--color-text);
+  transition: color 0.3s ease;
+}
+
 
 .container {
     max-width: 1200px;

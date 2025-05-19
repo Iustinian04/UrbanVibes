@@ -1,6 +1,47 @@
+let containerProduse = null;
+let produseInitiale = null;
+
+function inputuriValide() {
+    let inpNume = document.getElementById("inp-nume").value.trim();
+    // let descriere = document.getElementById("inp-descriere").value.trim();
+    let radioStoc = document.querySelector('input[name="gr_stoc"]:checked');
+
+    let textarea = document.getElementById("inp-descriere");
+let descriere = textarea.value.trim();
+
+    // Verificare nume (nu trebuie sa conțină cifre)
+    if (inpNume && /\d/.test(inpNume)) {
+        alert("Numele nu trebuie să conțină cifre.");
+        return false;
+    }
+
+    // Verificare descriere (nu trebuie să fie goală dacă a fost completată)
+    if (descriere !== "" && descriere.length < 3) {
+    textarea.classList.add("is-invalid");
+    alert("Descrierea este prea scurtă.");
+    return false;
+} else {
+    textarea.classList.remove("is-invalid");
+}
+
+    // Verificare radio buttons pentru stoc
+    if (!radioStoc) {
+        alert("Selectați un interval de stoc.");
+        return false;
+    }
+
+    return true;
+}
+
+
 window.onload = function() {
+
+    containerProduse = document.querySelector(".grid-produse") ;
+    produseInitiale = Array.from(document.getElementsByClassName("produs"));
     btn= document.getElementById("filtrare");
     btn.onclick = function() {
+        if (!inputuriValide()) return;
+
         let inpNume=document.getElementById("inp-nume").value.trim().toLowerCase();
 
 
@@ -23,6 +64,7 @@ window.onload = function() {
             }
 
             let inpPret = parseFloat(document.getElementById("inp-pret").value);
+            let inpPret2 = parseFloat(document.getElementById("inp-pret2").value);
 
             let inpCategorie=document.getElementById("inp-categorie").value.trim().toLowerCase();
             
@@ -32,7 +74,15 @@ window.onload = function() {
 
             let nume=prod. getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase();
 
-            let cond1=(nume.startsWith(inpNume))
+            let cond1;
+            if (inpNume.includes("*")) {
+                let [start, end] = inpNume.split("*");
+                start = start ?? "";  
+                end = end ?? "";      
+                cond1 = nume.startsWith(start) && nume.endsWith(end);
+            } else {
+                cond1 = nume.includes(inpNume);
+            }
 
             let stoc=parseInt(prod.getElementsByClassName("val-stoc")[0].innerHTML.trim().toLowerCase());
 
@@ -40,13 +90,26 @@ window.onload = function() {
 
             let pret=parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim().toLowerCase());
 
-            let cond3 = (inpPret <= pret)
+            let cond3 = (inpPret <= pret && pret <= inpPret2);
 
             let categorie=prod. getElementsByClassName("val-categorie")[0].innerHTML.trim().toLowerCase();
             
             let cond4=(inpCategorie=="toate" || inpCategorie==categorie)
 
-            if(cond1 && cond2 && cond3 && cond4){
+            let valTip = document.getElementById("inp-tip").value.trim().toLowerCase();
+            let valDescriere = document.getElementById("inp-descriere").value.trim().toLowerCase();
+            let eticheteSelectate = Array.from(document.getElementById("inp-etichete").selectedOptions).map(opt => opt.value.toLowerCase());
+
+            let descriere = prod.getElementsByClassName("val-descriere")[0].innerHTML.trim().toLowerCase();
+            let cond5 = !valTip || descriere.includes(valTip); // tip produs în descriere
+
+            let cond6 = !valDescriere || descriere.includes(valDescriere); // textarea
+
+            let valEticheteText = prod.getElementsByClassName("val-etichete")[0]?.innerHTML.trim().toLowerCase() || "";
+            let cond7 = eticheteSelectate.length === 0 || eticheteSelectate.some(et => valEticheteText.includes(et));
+
+
+            if(cond1 && cond2 && cond3 && cond4 && cond5 && cond6 && cond7) {
     prod.style.display="block";
 }
         }
@@ -57,26 +120,47 @@ window.onload = function() {
     document.getElementById("inp-pret").onmousemove = function() {
         document.getElementById("infoRange").innerHTML=`(${this.value})`;
     }
+    document.getElementById("inp-pret2").onmousemove = function() {
+        document.getElementById("infoRange2").innerHTML=`(${this.value})`;
+    }
 
     document.getElementById("resetare").onclick = function() {
+
+        if (!confirm("Sigur doriți să resetați filtrele?")) {
+        return;
+        }
+        
         document.getElementById("inp-nume").value = "";
         document.getElementById("inp-categorie").value = "toate";
         document.getElementById("i_stoc4").checked = true;
         document.getElementById("inp-pret").value = 0;
+        document.getElementById("inp-pret2").value = 149.99;
         document.getElementById("sortCrescNume").value = "";
+        document.getElementById("sortDescrescNume").value = "";
+        document.getElementById("infoRange").innerHTML = "(0)";
+        document.getElementById("infoRange2").innerHTML = "(149)";
+
+        document.getElementById("inp-tip").value = "";
+        document.getElementById("inp-descriere").value = "";
+        document.getElementById("inp-etichete").selectedIndex = -1;
 
         let produse = document.getElementsByClassName("produs");
         for (let prod of produse) {
             prod.style.display = "block";
         }
+        if (containerProduse && produseInitiale) {
+        produseInitiale.forEach(prod => containerProduse.appendChild(prod));
+    }
     }
 
     document.getElementById("sortCrescNume").onclick = function() {
+        if (!inputuriValide()) return;
         sorteaza(1);
 
     }
 
     document.getElementById("sortDescrescNume").onclick = function() {
+        if (!inputuriValide()) return;
         sorteaza(-1);
 
     }
@@ -104,7 +188,9 @@ window.onload = function() {
     }
 
     window.onkeydown = function(e) {
+        
         if(e.key=="c" && e.altKey){
+            if (!inputuriValide()) return;
             let produse= document.getElementsByClassName("produs");
             let sumaPreturi=0;
             for (let prod of produse ){
