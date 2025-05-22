@@ -330,6 +330,30 @@ app.get("/*.ejs", function(req, res, next){
 })
 
 
+// Ruta pagian comparatie bonus 20
+function obtineProdusDupaId(id) {
+    return new Promise((resolve, reject) => {
+        client.query("SELECT * FROM produse WHERE id=$1", [id], (err, rez) => {
+            if (err) {
+                console.error("Eroare DB:", err);
+                reject(err);
+            } else {
+                resolve(rez.rows[0]);
+            }
+        });
+    });
+}
+
+
+app.get("/comparatie/:id1/:id2", async (req, res) => {
+    const { id1, id2 } = req.params;
+    const [produs1, produs2] = await Promise.all([
+        obtineProdusDupaId(id1),
+        obtineProdusDupaId(id2)
+    ]);
+    res.render("pagini/comparatie", { produs1, produs2 });
+});
+
 app.get("/*", function(req, res, next){
     try{
         res.render("pagini"+req.url,function (err, rezultatRandare){
@@ -356,6 +380,8 @@ app.get("/*", function(req, res, next){
         }
     }
 })
+
+
 
 
 

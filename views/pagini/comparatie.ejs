@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <%- include("../fragmente/head") %>
+    <meta charset="UTF-8">
+    <title>Comparație Produse</title>
+    <meta name="description" content="Comparație între două produse">
+    <style>
+        table {
+            width: 90%;
+            margin: 2em auto;
+            border-collapse: collapse;
+            border: 1px solid #ccc;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 0.75em;
+            text-align: left;
+        }
+        th {
+            background-color: #f3f3f3;
+        }
+        caption {
+            font-size: 1.5em;
+            margin-bottom: 1em;
+        }
+    </style>
+</head>
+
+<%- include("../fragmente/header") %>
+<body>
+    <h1 style="text-align:center;">Comparație produse</h1>
+    <table>
+        <caption>Compară <%= produs1.nume %> și <%= produs2.nume %></caption>
+        <thead>
+            <tr>
+                <th>Caracteristică</th>
+                <th><%= produs1.nume %></th>
+                <th><%= produs2.nume %></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% 
+                const toateCheile = new Set([...Object.keys(produs1), ...Object.keys(produs2)]);
+                toateCheile.forEach(cheie => {
+                    if (cheie === "id" || cheie === "imagine" || cheie === "imagine_url") return;
+            %>
+            <tr>
+                <td><%= cheie.charAt(0).toUpperCase() + cheie.slice(1).replace(/_/g, " ") %></td>
+                <td><%- Array.isArray(produs1[cheie]) ? produs1[cheie].join(", ") : produs1[cheie] || "—" %></td>
+                <td><%- Array.isArray(produs2[cheie]) ? produs2[cheie].join(", ") : produs2[cheie] || "—" %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    <%- include("../fragmente/footer") %>
+</body>
+</html>

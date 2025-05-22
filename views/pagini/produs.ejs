@@ -7,6 +7,8 @@
         <title>UrbanVibe - home</title>
         <%- include("../fragmente/head") %>     
         <link href="/Resurse/CSS/produs.css" type="text/css" rel="stylesheet" />
+        <script src="/Resurse/js/compara.js"></script>
+
     </head>
     <body>
     
@@ -16,6 +18,8 @@
             <h2>Pagină produs</h2>
                 <article id="art-produs">
                 <h3><span class="art-nume"><%- locals.prod.nume %></span></h3>
+                <button class="btn btn-primary btn-compare" data-id="<%- locals.prod.id %>" data-nume="<%- locals.prod.nume %>">Compară</button>
+
                 <p>Pret: <span class="art-pret"><%- locals.prod.pret %> RON</span></p>
                 <p>Descriere: <span class="art-descriere"><%- locals.prod.descriere %></span></p>
                 <p>Categorie: <span class="art-categorie"><%- locals.prod.categorie %></span></p>
