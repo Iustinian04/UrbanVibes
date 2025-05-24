@@ -266,4 +266,38 @@ window.onload = function() {
     }
   });
 
+    // Bonus 14 - Cel mai ieftin produs
+    function evidentiazaCeleMaiIeftine() {
+    const produse = Array.from(document.querySelectorAll(".produs"));
+    const celeMaiIeftine = {};
+
+    produse.forEach(prod => {
+        const cat = prod.querySelector(".val-categorie").innerText.trim().toLowerCase();
+        const pretSpan = prod.querySelector(".val-pret");
+        const pretText = pretSpan.querySelector("span")?.innerText || pretSpan.innerText;
+        const pret = parseFloat(pretText);
+
+        if (!(cat in celeMaiIeftine) || pret < celeMaiIeftine[cat].pret) {
+            celeMaiIeftine[cat] = {
+                element: prod,
+                pret: pret
+            };
+        }
+    });
+
+    for (let cat in celeMaiIeftine) {
+        const produs = celeMaiIeftine[cat].element;
+
+        // Adauga elementul de evidențiere
+        const categorieAfisata = produs.querySelector(".val-categorie").innerText.trim();
+        const badge = document.createElement("div");
+        badge.classList.add("badge-ieftin");
+        badge.innerHTML = `<i class="bi bi-star-fill"></i> Cel mai ieftin din categoria <strong>${categorieAfisata}</strong>!`;
+        produs.querySelector(".produs-info").prepend(badge);
+    }
+}
+
+evidentiazaCeleMaiIeftine();
+
+
 }

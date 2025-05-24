@@ -116,3 +116,15 @@ main{
     height: auto;
     border: 1px solid grey;
 }
+
+/* Bonus 14 - Cel mai ieftin produs */
+.badge-ieftin {
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 5px solid #28a745;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
