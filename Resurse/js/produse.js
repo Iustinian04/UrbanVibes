@@ -88,7 +88,11 @@ window.onload = function() {
 
             let cond2=(inpStoc=="toate")  || (minStoc <= stoc && stoc <= maxStoc);
 
-            let pret=parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim().toLowerCase());
+            // Modificare pentru bonus 12
+            let pretContainer = prod.getElementsByClassName("val-pret")[0];
+            let pretNou = pretContainer.querySelector("span")?.innerText || pretContainer.innerText;
+            let pret = parseFloat(pretNou);
+            // In cele 3 linii de mai sus am actualiazat programul astfel incat sa ia in considerare pretul redus
 
             let cond3 = (inpPret <= pret && pret <= inpPret2);
 
@@ -170,8 +174,17 @@ window.onload = function() {
         let vProduse = Array.from(produse);
         vProduse.sort(function(a, b) {
 
-            let pretA = parseFloat(a.getElementsByClassName("val-pret")[0].innerHTML.trim().toLowerCase());
-            let pretB = parseFloat(b.getElementsByClassName("val-pret")[0].innerHTML.trim().toLowerCase());
+            // Modificare bonus 12
+            let pretAContainer = a.getElementsByClassName("val-pret")[0];
+            let pretBContainer = b.getElementsByClassName("val-pret")[0];
+
+            let pretAText = pretAContainer.querySelector("span")?.innerText || pretAContainer.innerText;
+            let pretBText = pretBContainer.querySelector("span")?.innerText || pretBContainer.innerText;
+
+            let pretA = parseFloat(pretAText);
+            let pretB = parseFloat(pretBText);
+            // Verificăm dacă pretA și pretB sunt NaN
+
             if (pretA != pretB) {
                 return semn*(pretA - pretB);
             }
@@ -195,7 +208,10 @@ window.onload = function() {
             let sumaPreturi=0;
             for (let prod of produse ){
                 if (prod.style.display!="none"){
-                    let pret = parseFloat(prod.getElementsByClassName("val-pret")[0].innerHTML.trim().toLowerCase());
+                    // Modificare bonus 12
+                    let pretContainer = prod.getElementsByClassName("val-pret")[0];
+                    let pretText = pretContainer.querySelector("span")?.innerText || pretContainer.innerText;
+                    let pret = parseFloat(pretText);
                     sumaPreturi += pret;
                 }
             }
@@ -217,4 +233,37 @@ window.onload = function() {
             
         }
     }
+
+    // Bonus 12 
+    fetch("/Resurse/json/oferte.json", { cache: "no-store" })
+  .then(res => res.json())
+  .then(data => {
+    const oferta = data.oferte?.[0];
+    if (!oferta) return;
+
+    const categorieOferta = oferta.categorie.toLowerCase();
+    const reducere = parseInt(oferta.reducere);
+
+    const produse = document.querySelectorAll(".produs");
+    for (let prod of produse) {
+      const cat = prod.querySelector(".val-categorie").innerText.trim().toLowerCase();
+      const pretSpan = prod.querySelector(".val-pret");
+
+      // Adaugăm atributul data-pret-original dacă nu există deja
+      if (!pretSpan.dataset.pretOriginal) {
+        const pretInitial = parseFloat(pretSpan.innerText);
+        pretSpan.dataset.pretOriginal = pretInitial;
+      }
+
+      const pretVechi = parseFloat(pretSpan.dataset.pretOriginal);
+      if (cat === categorieOferta) {
+        const pretNou = (pretVechi * (1 - reducere / 100)).toFixed(2);
+        pretSpan.innerHTML = `<s>${pretVechi} RON</s> <span class="text-success fw-bold">${pretNou} RON</span>`;
+      } else {
+        // Refacem afișarea originală dacă nu mai e în ofertă
+        pretSpan.innerText = `${pretVechi} RON`;
+      }
+    }
+  });
+
 }

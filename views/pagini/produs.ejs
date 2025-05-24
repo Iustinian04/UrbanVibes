@@ -20,7 +20,10 @@
                 <h3><span class="art-nume"><%- locals.prod.nume %></span></h3>
                 <button class="btn btn-primary btn-compare" data-id="<%- locals.prod.id %>" data-nume="<%- locals.prod.nume %>">Compară</button>
 
-                <p>Pret: <span class="art-pret"><%- locals.prod.pret %> RON</span></p>
+                <p>Pret: 
+                <span class="art-pret" data-pret="<%- locals.prod.pret %>"><%- locals.prod.pret %> RON</span>
+                <span class="art-pret-redus text-success fw-bold d-none"></span>
+                </p>
                 <p>Descriere: <span class="art-descriere"><%- locals.prod.descriere %></span></p>
                 <p>Categorie: <span class="art-categorie"><%- locals.prod.categorie %></span></p>
                 <p>Tip produs: <span class="art-tip"><%- locals.prod.tip %></span></p>
@@ -36,5 +39,6 @@
     </main>
 
     <%- include("../fragmente/footer") %>
+    <script src="/Resurse/js/produs-oferta.js"></script>
     </body>
 </html>

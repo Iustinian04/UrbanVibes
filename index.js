@@ -202,6 +202,8 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 }
 
 
+
+
 app.use("/*", function(req, res,next){
     res.locals.optiuniMeniu=obGlobal.optiuniMeniu;
     next();
@@ -354,6 +356,9 @@ app.get("/comparatie/:id1/:id2", async (req, res) => {
     res.render("pagini/comparatie", { produs1, produs2 });
 });
 
+
+
+
 app.get("/*", function(req, res, next){
     try{
         res.render("pagini"+req.url,function (err, rezultatRandare){
@@ -381,11 +386,72 @@ app.get("/*", function(req, res, next){
     }
 })
 
+// Bonus 12
+const caleOferte = path.join(__dirname, "Resurse/json/oferte.json");
+const T = 1 * 60 * 1000; // 1 minut
+const T2 = 2 * 60 * 1000; // 2 minute
+const reduceri = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+
+function genereazaOfertaNoua() {
+    client.query("SELECT * FROM unnest(enum_range(NULL::categorie_produs))", (err, rez) => {
+        if (err) {
+            console.error("Eroare la interogare categorii:", err);
+            return;
+        }
+
+        const categorii = rez.rows.map(r => r.unnest);
+        let oferte = [];
+
+        if (fs.existsSync(caleOferte)) {
+            const continut = fs.readFileSync(caleOferte, "utf-8");
+            oferte = JSON.parse(continut).oferte || [];
+        }
+
+        const ultimaCategorie = oferte[0]?.categorie;
+        const categoriiDisponibile = categorii.filter(c => c !== ultimaCategorie);
+
+        if (categoriiDisponibile.length === 0) return; // toate au fost deja folosite
+
+        const categorieNoua = categoriiDisponibile[Math.floor(Math.random() * categoriiDisponibile.length)];
+        const reducereNoua = reduceri[Math.floor(Math.random() * reduceri.length)];
+
+        const dataIncepere = new Date();
+        const dataFinalizare = new Date(dataIncepere.getTime() + T);
+
+        // eliminare oferte expirate (mai vechi de T2)
+        const acum = new Date();
+        oferte = oferte.filter(of => acum - new Date(of["data-finalizare"]) < T2);
+
+        // inserare noua oferta
+        oferte.unshift({
+            categorie: categorieNoua,
+            "data-incepere": dataIncepere,
+            "data-finalizare": dataFinalizare,
+            reducere: reducereNoua
+        });
+
+        fs.writeFileSync(caleOferte, JSON.stringify({ oferte }, null, 2));
+        console.log("Oferta nouă generată:", oferte[0]);
+    });
+}
+
+// Generează prima ofertă și apoi periodic
+setTimeout(() => {
+    genereazaOfertaNoua(); // prima execuție după T milisecunde
+    setInterval(genereazaOfertaNoua, T); // apoi periodic
+}, T);
+
+// Bonus 12
+app.get("/reseteaza-oferta", (req, res) => {
+  genereazaOfertaNoua();
+  res.send("ok");
+});
 
 
 
 
 app.listen(8080);
 console.log("Serverul a pornit")
+
 
 
