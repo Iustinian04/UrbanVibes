@@ -322,6 +322,18 @@ app.get("/produs/:id", function(req, res){
     })
 })
 
+// Bonus 11
+app.get("/api/produs/:id", function(req, res){
+    client.query("SELECT * FROM produse WHERE id=$1", [req.params.id], function(err, rez){
+        if (err || rez.rowCount === 0) {
+            res.status(404).json({ eroare: "Produsul nu a fost găsit" });
+        } else {
+            res.json(rez.rows[0]);
+        }
+    });
+});
+
+
 app.get(/^\/Resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
     afisareEroare(res,403);
 })

@@ -299,5 +299,93 @@ window.onload = function() {
 
 evidentiazaCeleMaiIeftine();
 
+    // Bonus 11
+    function creeazaModalDinServer(idProdus) {
+    fetch(`/api/produs/${idProdus}`)
+        .then(resp => resp.json())
+        .then(prod => {
+            const modalExistent = document.getElementById("modal-produs");
+            if (modalExistent) modalExistent.remove();
+
+            const modal = document.createElement("div");
+            modal.id = "modal-produs";
+            modal.className = "custom-modal";
+
+            const continut = document.createElement("div");
+            continut.className = "custom-modal-content";
+
+            const inchideBtn = document.createElement("span");
+            inchideBtn.className = "custom-close";
+            inchideBtn.innerHTML = "&times;";
+            inchideBtn.onclick = () => modal.remove();
+
+            const tabel = document.createElement("table");
+            tabel.className = "table table-striped";
+            tabel.style.margin = "0 auto";
+            tabel.style.textAlign = "left";
+
+            const caption = document.createElement("caption");
+            caption.innerText = `Detalii produs: ${prod.nume}`;
+            caption.style.fontSize = "1.25em";
+            caption.style.textAlign = "center";
+            tabel.appendChild(caption);
+
+            const body = document.createElement("tbody");
+
+            const exclude = ["id", "imagine", "imagine_url"];
+            for (let [cheie, valoare] of Object.entries(prod)) {
+                if (exclude.includes(cheie)) continue;
+
+                const rand = document.createElement("tr");
+
+                const cel1 = document.createElement("td");
+                cel1.innerText = cheie.replace(/_/g, " ").replace(/^\w/, c => c.toUpperCase());
+
+                const cel2 = document.createElement("td");
+                if (Array.isArray(valoare)) {
+                    cel2.innerText = valoare.join(", ");
+                } else {
+                    cel2.innerText = valoare ?? "—";
+                }
+
+                rand.appendChild(cel1);
+                rand.appendChild(cel2);
+                body.appendChild(rand);
+            }
+
+            tabel.appendChild(body);
+
+            // Imagine produs
+            const img = document.createElement("img");
+            img.src = `/resurse/imagini/produse/${prod.imagine_url}`;
+            img.alt = prod.nume;
+            img.style.maxWidth = "100%";
+            img.style.display = "block";
+            img.style.margin = "1rem auto";
+
+            continut.appendChild(inchideBtn);
+            continut.appendChild(img);
+            continut.appendChild(tabel);
+            modal.appendChild(continut);
+            document.body.appendChild(modal);
+
+            modal.onclick = function (e) {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            };
+        });
+}
+
+
+document.querySelectorAll(".produs a").forEach(link => {
+    link.addEventListener("click", function (e) {
+        e.preventDefault(); // opreste redirectionarea
+        const articol = e.target.closest(".produs");
+        const idProdus = articol.dataset.id;
+        creeazaModalDinServer(idProdus);
+    });
+});
+
 
 }

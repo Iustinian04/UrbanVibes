@@ -128,3 +128,53 @@ main{
     border-radius: 0.25rem;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
+
+/* Bonus 11 - modal box */
+.custom-modal {
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; justify-content: center; align-items: center;
+}
+
+.custom-modal-content {
+    background-color: #f8f9fa;
+    border: 3px solid black;
+    border-radius: 8px;
+    padding: 1rem;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.25);
+}
+
+.custom-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #dc3545;
+}
+
+.produs-modal img {
+    max-width: 100%;
+    height: auto;
+}
+
+.produs-modal-complet {
+    padding: 1rem;
+    text-align: center;
+}
+
+
+.produs-modal-complet p,
+.produs-modal-complet h3,
+.produs-modal-complet span,
+.produs-modal-complet figure {
+    margin-bottom: 1rem;
+}

@@ -2,21 +2,21 @@
   "oferte": [
     {
       "categorie": "altele",
-      "data-incepere": "2025-05-24T11:25:05.640Z",
-      "data-finalizare": "2025-05-24T11:26:05.640Z",
-      "reducere": 5
+      "data-incepere": "2025-05-24T12:18:18.760Z",
+      "data-finalizare": "2025-05-24T12:19:18.760Z",
+      "reducere": 10
     },
     {
-      "categorie": "încălțăminte",
-      "data-incepere": "2025-05-24T11:24:00.433Z",
-      "data-finalizare": "2025-05-24T11:25:00.433Z",
-      "reducere": 20
+      "categorie": "îmbrăcăminte",
+      "data-incepere": "2025-05-24T12:17:13.644Z",
+      "data-finalizare": "2025-05-24T12:18:13.644Z",
+      "reducere": 45
     },
     {
-      "categorie": "accesorii",
-      "data-incepere": "2025-05-24T11:22:46.714Z",
-      "data-finalizare": "2025-05-24T11:23:46.714Z",
-      "reducere": 20
+      "categorie": "altele",
+      "data-incepere": "2025-05-24T12:16:08.375Z",
+      "data-finalizare": "2025-05-24T12:17:08.375Z",
+      "reducere": 35
     }
   ]
 }
